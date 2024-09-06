@@ -249,3 +249,10 @@ export const faq = [
         answer: ""
     },
 ]
+
+export const socialLinks = {
+    twitter: "https://X.com/RefreeG",
+    instagram: "https://www.instagram.com/we_are_refreegerians/",
+    linkedin: "https://www.linkedin.com/company/refreeg",
+    community:'http://t.me/+d67UCIer8c01ODhk'
+}

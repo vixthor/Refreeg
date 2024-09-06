@@ -1,6 +1,7 @@
 import GetMail from '@/components/shared/GetMail'
-import { contactLinks, legalLinks, quickLinks } from '@/constants'
+import { contactLinks, legalLinks, quickLinks, socialLinks } from '@/constants'
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 const Footer = () => {
@@ -54,8 +55,8 @@ const Footer = () => {
 
             <div className='mx-auto md:mx-0 flex space-x-3 items-center w-fit md:justify-normal'>
             <Image src={"/facebook.png"} className='size-[30px]' alt='facebook social' width={50} height={50} />
-            <Image src={"/ig.png"} className='size-[30px]' alt='ig social' width={50} height={50} />
-            <Image src={"/x.png"} className='size-[30px]' alt='x social' width={50} height={50} />
+          <Link href={socialLinks.instagram}>  <Image src={"/ig.png"} className='size-[30px]' alt='ig social' width={50} height={50} /></Link>
+           <Link href={socialLinks.twitter}> <Image src={"/x.png"} className='size-[30px]' alt='x social' width={50} height={50} /></Link>
             </div>
         </div>
     </section>

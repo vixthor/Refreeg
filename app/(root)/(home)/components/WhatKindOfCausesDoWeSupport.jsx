@@ -1,6 +1,7 @@
 import Button from '@/components/shared/Button'
 import Tile from '@/components/shared/Tile'
-import { Causes } from '@/constants'
+import { Causes, socialLinks } from '@/constants'
+import Link from 'next/link'
 import React from 'react'
 
 const WhatKindOfCausesDoWeSupport = () => {
@@ -9,7 +10,9 @@ const WhatKindOfCausesDoWeSupport = () => {
         <div className='flex items-center justify-between'>
             <p className='text-bold text-[15px] font-semibold md:font-semibold w-fit mx-auto md:mx-0'>What kind of causes do we support?</p>
             <div className='hidden md:block'>
+              <Link href={socialLinks.community}>
             <Button variant={"outline"} > Join Us Today!</Button>
+</Link>
             </div>
         </div>
 

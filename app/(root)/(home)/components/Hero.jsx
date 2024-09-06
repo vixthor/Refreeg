@@ -1,7 +1,10 @@
 import HeroComponent from '@/components/shared/HeroComponent'
+import { socialLinks } from '@/constants'
 import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
+
 
 const Hero = () => {
   return (
@@ -22,10 +25,10 @@ const Hero = () => {
               <p className='text-[65px] md:text-[100px] font-bold md:font-semibold text-accent'>RefreeG</p>
               <p className='md:text-[20px] text-[16px]  text-baseline font-medium'>Your go to crowdfunding platform for building a new <br className='hidden md:block' /> Africa, one community at a time</p>
 
-              <button className='flex gap-[6px] bg-light py-[10px] px-[15px] rounded-[8px] text-bold text-[15px] items-center justify-center mx-auto relative z-30 
+              <Link href={socialLinks.community}  className='flex gap-[6px] bg-light py-[10px] px-[15px] rounded-[8px] text-bold text-[15px] items-center justify-center mx-auto relative z-30 
               md:mt-16 mt-8 font-semibold cursor-pointer hover:bg-accent hover:text-light transition'>Join our Community
                   <ArrowRight size={"18"} />
-          </button>
+          </Link>
           </div>
 
         <div className='md:px-0 px-[30px] md:mt-0 mt-6'><HeroComponent img1={"/heropic3.png"} img2={"/heropic4.png"} /></div>
