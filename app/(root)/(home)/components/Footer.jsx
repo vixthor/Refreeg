@@ -54,7 +54,7 @@ const Footer = () => {
             </p>
 
             <div className='mx-auto md:mx-0 flex space-x-3 items-center w-fit md:justify-normal'>
-            <Image src={"/facebook.png"} className='size-[30px]' alt='facebook social' width={50} height={50} />
+          <Link href={socialLinks.Facebook}>  <Image src={"/facebook.png"} className='size-[30px]' alt='facebook social' width={50} height={50} /></Link>
           <Link href={socialLinks.instagram}>  <Image src={"/ig.png"} className='size-[30px]' alt='ig social' width={50} height={50} /></Link>
            <Link href={socialLinks.twitter}> <Image src={"/x.png"} className='size-[30px]' alt='x social' width={50} height={50} /></Link>
             </div>
