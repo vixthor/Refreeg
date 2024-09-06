@@ -7,7 +7,7 @@ const montserrat = Montserrat({ subsets: ["latin"] });
 export const metadata = {
   title: "RefreeG",
   description: "Building Africa’s number 1 crowdfunding platform :)",
-  keywords: "crowdfunding, Africa, fundraising, investment, startup, community",
+  keywords: "crowdfunding, Africa, fundraising, investment, startup, community,refreeg, refreegerians,RefreeG",
   author: "RefreeG",
   publisher: "RefreeG",
   robots: "index, follow",
