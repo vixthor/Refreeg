@@ -1,6 +1,6 @@
 // components/form.js
 'use client';
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -13,10 +13,13 @@ import {
     Select,
     Text,
     VStack,
+    Radio,
+    RadioGroup,
     FormErrorMessage,
 } from '@chakra-ui/react';
 import Image from 'next/image';
 import { FormProgressBar } from './progressBar';
+import { ChevronRight } from 'lucide-react'
 
 const bookSchema = z.object({
     title: z.string().min(1, 'Book title is required'),
@@ -38,12 +41,19 @@ export const BookDonationForm = ({ formData, onFormDataChange, step }) => {
     });
 
     const onSubmit = (data) => {
-        console.log(data);
-        onFormDataChange(data);
+        const bookdata = {
+            title: data.title,
+            author: data.author,
+            condition: data.condition,
+            numberOfBooks: data.numberOfBooks
+        }
+        onFormDataChange(bookdata);
         const params = new URLSearchParams(searchParams);
         params.set('step', step + 1);
         replace(`${pathname}?${params.toString()}`);
     };
+
+
 
     return (
         <Box
@@ -53,7 +63,7 @@ export const BookDonationForm = ({ formData, onFormDataChange, step }) => {
             maxWidth="800px"  // Set maximum width
             mx="auto"          // Center the form horizontally
         >
-            <Image src={'/book.svg'} alt="Book Image" width={200} height={200} />
+            <Image src={'/book.svg'} className='hidden md:block' alt="Book Image" width={200} height={200} />
             <VStack spacing={4} as="form" onSubmit={handleSubmit(onSubmit)} flex="1" ml={4}>
                 <FormProgressBar currentStep={step} />
                 <Text fontSize="xl" mb={4}>Book Donation Form</Text>
@@ -141,8 +151,11 @@ export const BookDonationForm = ({ formData, onFormDataChange, step }) => {
                     />
                     <FormErrorMessage>{errors.numberOfBooks?.message}</FormErrorMessage>
                 </FormControl>
+                <div className=' flex justify-between'>
 
-                <Button type="submit" colorScheme="teal">Next</Button>
+
+                    <Button type="submit" colorScheme="teal">Next</Button>
+                </div>
             </VStack>
         </Box>
     );
@@ -165,12 +178,22 @@ export const ImageUploadForm = ({ onFormDataChange, step }) => {
     const [imageUploaded, setImageUploaded] = useState(false); // State to track if an image is uploaded
 
     const onSubmit = (data) => {
-        console.log(data);
-        onFormDataChange(data.image);
+        const imgData = { img: data.image }
+        onFormDataChange(imgData);
         const params = new URLSearchParams(searchParams);
         params.set('step', step + 1);
         replace(`${pathname}?${params.toString()}`);
     };
+    const handlePrev = () => {
+        const params = new URLSearchParams(searchParams);
+        params.set('step', step - 1);
+        replace(`${pathname}?${params.toString()}`);
+    }
+    const handleNext = () => {
+        const params = new URLSearchParams(searchParams);
+        params.set('step', step + 1);
+        replace(`${pathname}?${params.toString()}`);
+    }
 
     return (
         <Box
@@ -180,9 +203,14 @@ export const ImageUploadForm = ({ onFormDataChange, step }) => {
             maxWidth="800px"  // Set maximum width
             mx="auto"          // Center the form horizontally
         >
-            <Image src={'/book.svg'} alt="Upload Image" width={200} height={200} />
+            <Image src={'/book.svg'} className='hidden md:block' alt="Upload Image" width={200} height={200} />
             <VStack spacing={4} as="form" onSubmit={handleSubmit(onSubmit)} flex="1" ml={4}>
-                <FormProgressBar currentStep={step} />
+                <div className=' flex  w-full justify-between'>
+
+                    <FormProgressBar currentStep={step} />
+
+                    <p className=' cursor-pointer text-primaryShades-700 flex items-center' onClick={handleNext}> Skip this Step <ChevronRight /></p>
+                </div>
                 <Text fontSize="xl" mb={4}>Upload Image of Books</Text>
                 <Text mb={2} fontSize="md">Add a clear photo of the book cover to help others recognize it.</Text>
                 <FormControl isInvalid={!!errors.image}>
@@ -215,7 +243,7 @@ export const ImageUploadForm = ({ onFormDataChange, step }) => {
                                         accept="image/*"
                                         onChange={(e) => {
                                             const file = e.target.files[0];
-                                            console.log(file);  // Check if file is being detected
+                                            // Check if file is being detected
                                             onChange(file);  // Pass file to react-hook-form
                                             if (file) setImageUploaded(true);  // Set state to true if file is uploaded
                                         }}
@@ -256,7 +284,86 @@ export const ImageUploadForm = ({ onFormDataChange, step }) => {
                     <FormErrorMessage>{errors.image?.message}</FormErrorMessage>
                 </FormControl>
 
-                <Button type="submit" colorScheme="teal" mt={4}>Upload Image</Button>
+                <div className=' flex w-full justify-between'>
+
+                    <Button colorScheme="teal" onClick={handlePrev} >Prev</Button>
+                    <Button type="submit" colorScheme="teal">Next</Button>
+                </div>
+
+            </VStack>
+        </Box>
+    );
+};
+
+const deliverySchema = z.object({
+    deliveryMethod: z.string().nonempty('Please select a delivery method'),
+});
+
+export const IsDeliveryForm = ({ onFormDataChange, step }) => {
+    const searchParams = useSearchParams();
+    const pathname = usePathname();
+    const { replace } = useRouter();
+
+    const { control, handleSubmit, formState: { errors } } = useForm({
+        resolver: zodResolver(deliverySchema),
+    });
+    const handlePrev = () => {
+        const params = new URLSearchParams(searchParams);
+        params.set('step', step - 1);
+        replace(`${pathname}?${params.toString()}`);
+    }
+
+    const onSubmit = (data) => {
+        console.log(data);
+        onFormDataChange({ deliveryMethod: data.deliveryMethod });
+        const params = new URLSearchParams(searchParams);
+        params.set('step', step + 1);
+        replace(`${pathname}?${params.toString()}`);
+    };
+
+    return (
+        <Box
+            display="flex"
+            alignItems="center"
+            p={6}
+            maxWidth="800px"  // Set maximum width
+            mx="auto"          // Center the form horizontally
+        >
+            <Image src={'/book.svg'} className='hidden md:block' alt="Upload Image" width={200} height={200} />
+            <VStack spacing={10} as="form" onSubmit={handleSubmit(onSubmit)} flex="1">
+                <Text fontSize="xl" mb={4}>How will we receive the books?</Text>
+                <Controller
+                    name="deliveryMethod"
+                    control={control}
+                    defaultValue=""
+                    render={({ field }) => (
+                        <RadioGroup {...field} className=' flex' onChange={field.onChange}>
+
+                            <div className=' flex space-x-20' >
+                                <Box textAlign="center">
+                                    <Radio value="delivery" size="lg">
+                                        <Image src={'/deliver.svg'} alt="Delivery" width={100} height={100} />
+                                    </Radio>
+                                    <Text>Delivery</Text>
+                                </Box>
+                                <Box textAlign="center">
+                                    <Radio value="pickup" size="lg">
+                                        <Image src={'/pickup.svg'} alt="Pickup" width={100} height={100} />
+                                    </Radio>
+                                    <Text>Pickup</Text>
+                                </Box>
+                            </div>
+                        </RadioGroup>
+                    )}
+                />
+                {errors.deliveryMethod && <Text color="red.500">{errors.deliveryMethod.message}</Text>}
+
+              
+                <div className=' lg:px-28 flex w-full justify-between'>
+
+                    <Button colorScheme="teal" onClick={handlePrev} >Prev</Button>
+                    <Button type="submit" colorScheme="teal">Next</Button>
+                </div>
             </VStack>
         </Box>
     );
