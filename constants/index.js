@@ -124,26 +124,33 @@ export const Founders = [
     {
         key: 3,
         name: "Ibrahim Ocheje Salim",
-        role: "Co-Chief Technology Officer",
+        role: "Designer",
         desc: "Ibrahim Salim serves as the Chief Technology Officer at RefreeG. With a robust background in software engineering, he is adept at leading the technological vision and strategy of the company. Ibrahim has a proven track record in developing scalable and secure technology solutions, which is crucial for our blockchain-based crowdfunding platform. His expertise in software development, combined with his skills in financial management and strategic planning, ensures that RefreeG's technological infrastructure is both innovative and reliable.",
         src: "/c3.png"
     },
     {
         key: 4,
-        name: "Hassan Akorede Quadri",
-        role: "Co-Chief Technology Officer",
-        desc: "Hassan Quadri is the Chief Operating Officer at RefreeG, bringing a wealth of experience in technology management and project leadership. As a technology enthusiast and project manager with a background in software engineering, Hassan oversees the operational aspects of RefreeG, ensuring that all projects are executed efficiently and effectively. His ability to manage teams, optimize processes, and implement innovative solutions is pivotal to the success of our platform.",
+        name: "Muhammad Muzzamill Raji",
+        role: "Developer",
+        desc: "Muzammil Raji serves as a Developer at RefreeG, leveraging his strong foundation in software development and problem-solving skills to enhance our technology solutions. With a keen eye for detail and a passion for coding, Muzammil plays a pivotal role in building and maintaining the platforms that support our crowdfunding initiatives. His commitment to innovation drives him to explore new technologies and methodologies, ensuring that our systems are not only efficient but also user-friendly.",
         src: "/c4.png"
     },
     {
         key: 5,
-        name: "Victor Udo",
-        role: "Chief Marketing Officer",
-        desc: "Victor Udo serves as the Chief Marketing Officer at RefreeG, bringing his extensive background in software engineering and multimedia content creation to the forefront of our marketing strategies. His unique blend of technical and creative skills enables him to craft compelling narratives and innovative marketing campaigns that resonate with our audience. Victor is passionate about creating a better way of life, and his commitment to social impact drives him to promote causes that foster socioeconomic growth and community development.",
-        src: ""
+        name: "Unoagu-Amadike Nomso",
+        role: "Developer",
+        desc: "Mr. Nomso server as a developer  at RefreeG. With a background in architecture, Woody brings a wealth of experience in designing and implementing sustainable infrastructure projects. His passion for building better infrastructure in Africa drives his commitment to creating resilient and thriving communities. Woody's expertise ensures that RefreeG's projects not only address immediate needs but also contribute to long-term socioeconomic growth and sustainability.",
+        src: "/c6.png"
     },
     {
         key: 6,
+        name: "Victor Udo",
+        role: "Chief Marketing Officer",
+        desc: "Victor Udo serves as the Chief Marketing Officer at RefreeG, bringing his extensive background in software engineering and multimedia content creation to the forefront of our marketing strategies. His unique blend of technical and creative skills enables him to craft compelling narratives and innovative marketing campaigns that resonate with our audience. Victor is passionate about creating a better way of life, and his commitment to social impact drives him to promote causes that foster socioeconomic growth and community development.",
+        src: "/c5.svg"
+    },
+    {
+        key: 7,
         name: "Achegbe Ilyasu Woody ",
         role: "Head of Community Management",
         desc: "Mr. Woody Ilyasu is the Head of Community Development at RefreeG. With a background in architecture, Woody brings a wealth of experience in designing and implementing sustainable infrastructure projects. His passion for building better infrastructure in Africa drives his commitment to creating resilient and thriving communities. Woody's expertise ensures that RefreeG's projects not only address immediate needs but also contribute to long-term socioeconomic growth and sustainability.",
