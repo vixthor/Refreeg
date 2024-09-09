@@ -112,35 +112,35 @@ export const Founders = [
         name: "Angulu Adeiza Julius",
         role: "Chief Executive Officer",
         desc: "A visionary leader with a background in software engineering and a deep commitment to social innovation. Adeiza brings extensive experience in project management and community development.",
-        src: "/c1.png"
+        src: "/c1.svg"
     },
     {
         key: 2,
         name: "Gbiyede Oghenetega Victor",
         role: "Chief Operations Officer",
         desc: "Gbiyede Oghenetega Victor is the Chief Operating Officer at RefreeG. With extensive experience in marketing and communications, Victor excels in managing the daily operations of the company and ensuring efficient execution of our projects. His ability to streamline processes and enhance productivity is essential for the smooth operation of our platform. Victor's strong background in software engineering supports his strategic approach to operational management, making sure our services meet the highest standards of quality and effectiveness.",
-        src: "/c2.png"
+        src: "/c2.svg"
     },
     {
         key: 3,
         name: "Ibrahim Ocheje Salim",
         role: "Designer",
         desc: "Ibrahim Salim serves as the Chief Technology Officer at RefreeG. With a robust background in software engineering, he is adept at leading the technological vision and strategy of the company. Ibrahim has a proven track record in developing scalable and secure technology solutions, which is crucial for our blockchain-based crowdfunding platform. His expertise in software development, combined with his skills in financial management and strategic planning, ensures that RefreeG's technological infrastructure is both innovative and reliable.",
-        src: "/c3.png"
+        src: "/c3.svg"
     },
     {
         key: 4,
         name: "Muhammad Muzzamill Raji",
         role: "Developer",
         desc: "Muzammil Raji serves as a Developer at RefreeG, leveraging his strong foundation in software development and problem-solving skills to enhance our technology solutions. With a keen eye for detail and a passion for coding, Muzammil plays a pivotal role in building and maintaining the platforms that support our crowdfunding initiatives. His commitment to innovation drives him to explore new technologies and methodologies, ensuring that our systems are not only efficient but also user-friendly.",
-        src: "/c4.png"
+        src: "/c4.svg"
     },
     {
         key: 5,
         name: "Unoagu-Amadike Nomso",
         role: "Developer",
         desc: "Mr. Nomso server as a developer  at RefreeG. With a background in architecture, Woody brings a wealth of experience in designing and implementing sustainable infrastructure projects. His passion for building better infrastructure in Africa drives his commitment to creating resilient and thriving communities. Woody's expertise ensures that RefreeG's projects not only address immediate needs but also contribute to long-term socioeconomic growth and sustainability.",
-        src: "/c6.png"
+        src: "/c6.svg"
     },
     {
         key: 6,
