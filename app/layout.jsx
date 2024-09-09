@@ -1,4 +1,5 @@
 import { Montserrat } from "next/font/google";
+import GoogleAnalytics from '@/components/GoogleAnalytics';
 import "./globals.css";
 import { Providers } from "./Providers";
 
@@ -34,6 +35,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <GoogleAnalytics />
       <body className={montserrat.className}>
         <Providers>
         {children}
