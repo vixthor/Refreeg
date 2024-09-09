@@ -12,24 +12,29 @@ export const metadata = {
   author: "RefreeG",
   publisher: "RefreeG",
   robots: "index, follow",
+  icon: "/logo.png", 
   og: {
     title: "RefreeG - Crowdfunding Platform",
     description: "Join us in building Africa’s number 1 crowdfunding platform.",
     url: "https://www.refreeg.com",
     type: "website",
+    image: "/logo.png",
   },
   twitter: {
     handle: "@RefreeG",
     title: "RefreeG - Crowdfunding Platform",
     description: "Join us in building Africa’s number 1 crowdfunding platform.",
     url: "https://www.x.com/RefreeG",
+    image: "/logo.png",
   },
   instagram: {
     handle: "@we_are_refreegerians",
     title: "RefreeG - Crowdfunding Platform",
     description: "Join us in building Africa’s number 1 crowdfunding platform.",
     url: "https://www.instagram.com/we_are_refreegerians",
+    image: "/logo.png",
   },
+
 };
 
 export default function RootLayout({ children }) {
