@@ -22,9 +22,9 @@ const FormSwitcher = ({ step }) => {
             case 1:
                 return <BookDonationForm formData={formData} onFormDataChange={handleFormDataChange} step={step} />;
             case 2:
-                return <ImageUploadForm  onFormDataChange={handleFormDataChange} step={step} />;
+                return <ImageUploadForm formData={formData.img}  onFormDataChange={handleFormDataChange} step={step} />;
             case 3:
-                return <IsDeliveryForm onFormDataChange={handleFormDataChange} step={step}/>
+                return <IsDeliveryForm formData={formData.deliveryMethod} onFormDataChange={handleFormDataChange} step={step}/>
            
         }
     };

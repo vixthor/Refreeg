@@ -166,13 +166,14 @@ const imageSchema = z.object({
         message: 'Image is required',
     }),
 });
-export const ImageUploadForm = ({ onFormDataChange, step }) => {
+export const ImageUploadForm = ({formData, onFormDataChange, step }) => {
     const searchParams = useSearchParams();
     const pathname = usePathname();
     const { replace } = useRouter();
 
     const { control, handleSubmit, formState: { errors } } = useForm({
         resolver: zodResolver(imageSchema),
+        defaultValues:formData
     });
 
     const [imageUploaded, setImageUploaded] = useState(false); // State to track if an image is uploaded
@@ -299,20 +300,21 @@ const deliverySchema = z.object({
     deliveryMethod: z.string().nonempty('Please select a delivery method'),
 });
 
-export const IsDeliveryForm = ({ onFormDataChange, step }) => {
+export const IsDeliveryForm = ({formData, onFormDataChange, step }) => {
     const searchParams = useSearchParams();
     const pathname = usePathname();
     const { replace } = useRouter();
 
     const { control, handleSubmit, formState: { errors } } = useForm({
         resolver: zodResolver(deliverySchema),
+        defaultValues:formData
     });
     const handlePrev = () => {
         const params = new URLSearchParams(searchParams);
         params.set('step', step - 1);
         replace(`${pathname}?${params.toString()}`);
     }
-
+  console.log(formData)
     const onSubmit = (data) => {
         console.log(data);
         onFormDataChange({ deliveryMethod: data.deliveryMethod });
