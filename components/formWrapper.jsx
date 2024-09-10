@@ -28,7 +28,7 @@ export const FormWrapper = ({
 
     const handleNext = () => {
         const params = new URLSearchParams(searchParams);
-        params.set('step', step + 1);
+      step <= 5?  params.set('step', step + 1) : params.set('step', step);
         replace(`${pathname}?${params.toString()}`);
     };
 
