@@ -158,9 +158,9 @@ export const Founders = [
   },
   {
     key: 7,
-    name: "Achegbe Ilyasu Woody ",
+    name: "Iliyasu Achegbe Woody ",
     role: "Head of Community Management",
-    desc: "Mr. Woody Ilyasu is the Head of Community Development at RefreeG. With a background in architecture, Woody brings a wealth of experience in designing and implementing sustainable infrastructure projects. His passion for building better infrastructure in Africa drives his commitment to creating resilient and thriving communities. Woody's expertise ensures that RefreeG's projects not only address immediate needs but also contribute to long-term socioeconomic growth and sustainability.",
+    desc: "Mr. Woody is the Head of Community Development at RefreeG. With a background in architecture, Woody brings a wealth of experience in designing and implementing sustainable infrastructure projects. His passion for building better infrastructure in Africa drives his commitment to creating resilient and thriving communities. Woody's expertise ensures that RefreeG's projects not only address immediate needs but also contribute to long-term socioeconomic growth and sustainability.",
     src: "/c7.png",
   },
 ];
