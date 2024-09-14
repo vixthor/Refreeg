@@ -2,192 +2,120 @@
 "use client";
 import React, { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import {
   Box,
-  Button,
   FormControl,
   Input,
   Select,
   Text,
-  VStack,
   Radio,
   RadioGroup,
   FormErrorMessage,
 } from "@chakra-ui/react";
 import Image from "next/image";
-import { FormProgressBar } from "./progressBar";
-import { ChevronRight, ArrowLeftCircle, ArrowRightCircle } from "lucide-react";
 import { FormWrapper } from "./formWrapper";
+import { pickUpSchema, bookSchema, deliverySchema, imageSchema } from "@/constants/schema";
 
-const bookSchema = z.object({
-  title: z.string().min(1, "Book title is required"),
-  author: z.string().min(1, "Author name is required"),
-  condition: z.enum(["new", "gently used", "well used"], {
-    errorMap: () => ({ message: "Condition is required" }),
-  }),
-  numberOfBooks: z
-    .number()
-    .min(1, "At least one book must be donated")
-    .max(100, "Max 100 books"),
-});
+export const BookDonationForm = ({ control, errors }) => {
+  return (<>
+    <FormControl isInvalid={!!errors.title}>
+      <Controller
+        name="title"
+        control={control}
+        render={({ field }) => (
+          <Input
+            id="title"
+            placeholder="Enter book title"
+            borderBottom="1.5px solid"
+            borderColor={errors.title ? "red.500" : "gray.300"}
+            outline="none"
+            variant={"flushed"}
+            {...field}
+          />
+        )}
+      />
+      <FormErrorMessage>{errors.title?.message}</FormErrorMessage>
+    </FormControl>
 
-export const BookDonationForm = ({ formData, onFormDataChange, step }) => {
-  const {
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    resolver: zodResolver(bookSchema),
-    defaultValues: formData,
-  });
+    <FormControl isInvalid={!!errors.author}>
+      <Controller
+        name="author"
+        control={control}
+        render={({ field }) => (
+          <Input
+            id="author"
+            placeholder="Enter author name"
+            borderBottom="1.5px solid"
+            borderColor={errors.author ? "red.500" : "gray.300"}
+            outline="none"
+            variant={"flushed"}
+            {...field}
+          />
+        )}
+      />
+      <FormErrorMessage>{errors.author?.message}</FormErrorMessage>
+    </FormControl>
 
-  const onSubmit = (data) => {
-    const bookdata = {
-      title: data.title,
-      author: data.author,
-      condition: data.condition,
-      numberOfBooks: data.numberOfBooks,
-      fullname: data.fullname,
-      email: data.email,
-      phone: data.phone,
-      address: data.address,
-    };
-    onFormDataChange(bookdata);
-  };
+    <FormControl isInvalid={!!errors.condition}>
+      <Controller
+        name="condition"
+        control={control}
+        render={({ field }) => (
+          <Select
+            id="condition"
+            placeholder="Select condition"
+            borderBottom="1.5px solid"
+            borderColor={errors.condition ? "red.500" : "gray.300"}
+            variant={"flushed"}
+            {...field}
+          >
+            <option value="new">New</option>
+            <option value="gently used">Gently Used</option>
+            <option value="well used">Well Used</option>
+          </Select>
+        )}
+      />
+      <FormErrorMessage>{errors.condition?.message}</FormErrorMessage>
+    </FormControl>
 
-  return (
-    <FormWrapper
-      step={step}
-      title="Book Donation Form"
-      onSubmit={handleSubmit(onSubmit)}
-      hasImage
-      noPrevButton
-      // Center the form horizontally
-    >
-      <FormControl isInvalid={!!errors.title}>
-        <Controller
-          name="title"
-          control={control}
-          render={({ field }) => (
-            <Input
-              id="title"
-              placeholder="Enter book title"
-              borderBottom="1.5px solid"
-              borderColor={errors.title ? "red.500" : "gray.300"}
-              outline="none"
-              variant={"flushed"}
-              {...field}
-            />
-          )}
-        />
-        <FormErrorMessage>{errors.title?.message}</FormErrorMessage>
-      </FormControl>
+    <FormControl isInvalid={!!errors.numberOfBooks}>
+      <Controller
+        name="numberOfBooks"
+        control={control}
+        render={({ field }) => (
+          <Input
+            id="numberOfBooks"
+            type="number"
+            placeholder="Enter number of books"
+            borderBottom="1.5px solid"
+            borderColor={errors.numberOfBooks ? "red.500" : "gray.300"}
+            outline="none"
+            variant={"flushed"}
+            onChange={(e) => {
+              const value = Number(e.target.value);
+              field.onChange(value);
+            }}
+            value={field.value || ""}
+          />
+        )}
+      />
+      <FormErrorMessage>{errors.numberOfBooks?.message}</FormErrorMessage>
+    </FormControl>
+    </>)
+}
 
-      <FormControl isInvalid={!!errors.author}>
-        <Controller
-          name="author"
-          control={control}
-          render={({ field }) => (
-            <Input
-              id="author"
-              placeholder="Enter author name"
-              borderBottom="1.5px solid"
-              borderColor={errors.author ? "red.500" : "gray.300"}
-              outline="none"
-              variant={"flushed"}
-              {...field}
-            />
-          )}
-        />
-        <FormErrorMessage>{errors.author?.message}</FormErrorMessage>
-      </FormControl>
 
-      <FormControl isInvalid={!!errors.condition}>
-        <Controller
-          name="condition"
-          control={control}
-          render={({ field }) => (
-            <Select
-              id="condition"
-              placeholder="Select condition"
-              borderBottom="1.5px solid"
-              borderColor={errors.condition ? "red.500" : "gray.300"}
-              variant={"flushed"}
-              {...field}
-            >
-              <option value="new">New</option>
-              <option value="gently used">Gently Used</option>
-              <option value="well used">Well Used</option>
-            </Select>
-          )}
-        />
-        <FormErrorMessage>{errors.condition?.message}</FormErrorMessage>
-      </FormControl>
 
-      <FormControl isInvalid={!!errors.numberOfBooks}>
-        <Controller
-          name="numberOfBooks"
-          control={control}
-          render={({ field }) => (
-            <Input
-              id="numberOfBooks"
-              type="number"
-              placeholder="Enter number of books"
-              borderBottom="1.5px solid"
-              borderColor={errors.numberOfBooks ? "red.500" : "gray.300"}
-              outline="none"
-              variant={"flushed"}
-              onChange={(e) => {
-                const value = Number(e.target.value);
-                field.onChange(value);
-              }}
-              value={field.value || ""}
-            />
-          )}
-        />
-        <FormErrorMessage>{errors.numberOfBooks?.message}</FormErrorMessage>
-      </FormControl>
-    </FormWrapper>
-  );
-};
-
-const imageSchema = z.object({
-  image: z
-    .instanceof(File)
-    .nullable()
-    .refine((file) => file !== null, {
-      message: "Image is required",
-    }),
-});
-export const ImageUploadForm = ({ formData, onFormDataChange, step }) => {
-  const {
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    resolver: zodResolver(imageSchema),
-    defaultValues: formData,
-  });
+export const ImageUploadForm = ({ control, errors }) => {
+ 
 
   const [imageUploaded, setImageUploaded] = useState(false); // State to track if an image is uploaded
 
-  const onSubmit = (data) => {
-    const imgData = { img: data.image };
-    onFormDataChange(imgData);
-  };
+ 
 
   return (
-    <FormWrapper
-      step={step}
-      title=""
-      onSubmit={handleSubmit(onSubmit)}
-      hasImage
-      canSkipStep
-      // Center the form horizontally
-    >
+    <>
       <FormControl isInvalid={!!errors.image}>
         <Controller
           name="image"
@@ -260,37 +188,17 @@ export const ImageUploadForm = ({ formData, onFormDataChange, step }) => {
         />
         <FormErrorMessage>{errors.image?.message}</FormErrorMessage>
       </FormControl>
-    </FormWrapper>
+    </>
   );
 };
 
-const deliverySchema = z.object({
-  deliveryMethod: z.string().nonempty("Please select a delivery method"),
-});
 
-export const IsDeliveryForm = ({ formData, onFormDataChange, step }) => {
-  const {
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    resolver: zodResolver(deliverySchema),
-    defaultValues: formData,
-  });
 
-  const onSubmit = (data) => {
-    console.log(data);
-    onFormDataChange({ deliveryMethod: data.deliveryMethod });
-  };
+export const IsDeliveryForm = ({ control, errors }) => {
 
+ 
   return (
-    <FormWrapper
-      step={step}
-      title="How will we receive the books?"
-      onSubmit={handleSubmit(onSubmit)}
-      hasImage
-      // Center the form horizontally
-    >
+    <>
       <Controller
         name="deliveryMethod"
         control={control}
@@ -327,39 +235,15 @@ export const IsDeliveryForm = ({ formData, onFormDataChange, step }) => {
       {errors.deliveryMethod && (
         <Text color="red.500">{errors.deliveryMethod.message}</Text>
       )}
-    </FormWrapper>
+    </>
   );
 };
 
-export const PickupDetails = ({ formData, onFormDataChange, step }) => {
-  const {
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    resolver: zodResolver(bookSchema),
-    defaultValues: formData,
-  });
+export const PickupDetails = ({ control,errors}) => {
 
-  const onSubmit = (data) => {
-    const bookdata = {
-      title: data.title,
-      author: data.author,
-      condition: data.condition,
-      numberOfBooks: data.numberOfBooks,
-    };
-    onFormDataChange(bookdata);
-  };
 
   return (
-    <FormWrapper
-      step={step}
-      title="Book Pickup Details"
-      onSubmit={handleSubmit(onSubmit)}
-      hasImage
-      noPrevButton
-      // Center the form horizontally
-    >
+    <>
       <FormControl isInvalid={!!errors.fullname}>
         <Controller
           name="fullname"
@@ -398,44 +282,44 @@ export const PickupDetails = ({ formData, onFormDataChange, step }) => {
         <FormErrorMessage>{errors.email?.message}</FormErrorMessage>
       </FormControl>
 
-      <FormControl isInvalid={!!errors.phone}>
+      <FormControl isInvalid={!!errors.phoneNumber}>
         <Controller
-          name="email"
+          name="phoneNumber"
           control={control}
           render={({ field }) => (
             <Input
-              id="email"
+              id="phoneNumber"
+              type="number"
               placeholder="Enter your phone number"
               borderBottom="1.5px solid"
-              borderColor={errors.phone ? "red.500" : "gray.300"}
+              borderColor={errors.phoneNumber ? "red.500" : "gray.300"}
               outline="none"
               variant={"flushed"}
               {...field}
             />
           )}
         />
-        <FormErrorMessage>{errors.phone?.message}</FormErrorMessage>
+        <FormErrorMessage>{errors.phoneNumber?.message}</FormErrorMessage>
       </FormControl>
 
-      <FormControl isInvalid={!!errors.address}>
+      <FormControl isInvalid={!!errors.pickUpAddress}>
         <Controller
-          name="numberOfBooks"
+          name="pickUpAddress"
           control={control}
           render={({ field }) => (
             <Input
-              id="numberOfBooks"
-              type="number"
+              id="pickUpAddress"
               placeholder="Pickup Address"
               borderBottom="1.5px solid"
-              borderColor={errors.numberOfBooks ? "red.500" : "gray.300"}
+              borderColor={errors.pickUpAddress ? "red.500" : "gray.300"}
               outline="none"
               variant={"flushed"}
               {...field}
             />
           )}
         />
-        <FormErrorMessage>{errors.address?.message}</FormErrorMessage>
+        <FormErrorMessage>{errors.pickUpAddress?.message}</FormErrorMessage>
       </FormControl>
-    </FormWrapper>
+    </>
   );
 };
