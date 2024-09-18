@@ -1,16 +1,25 @@
 // components/FormSwitcher.js
 'use client';
 import { useState } from 'react';
-import { BookDonationForm, ImageUploadForm, IsDeliveryForm, PickupDetails } from './form';
+import { BookDonationPage, ImageUploadPage, IsDeliveryPage, PickupDetailsPage } from './donation';
+import ThankYou from './ThankYou';
 
 // Import your final form
 
 const FormSwitcher = ({ step }) => {
     const [formData, setFormData] = useState({
-        title:'',
-        author:'',
-        condition:'',
-        numberOfBooks:''
+        title: '',
+        author: '',
+        condition: '',
+        numberOfBooks: '',
+        pickUpDetails: {
+            fullname: "",
+            email: '',
+            phoneNumber: '', // Adjust as needed for phone number validation
+            pickUpAddress: '',
+        },
+        deliveryMethod: '',
+        img: null,
     }); // Initialize form data state
 
     const handleFormDataChange = (newData) => {
@@ -21,13 +30,15 @@ const FormSwitcher = ({ step }) => {
     const renderForm = () => {
         switch (step) {
             case 1:
-                return <BookDonationForm formData={formData} onFormDataChange={handleFormDataChange} step={step} />;
+                return <BookDonationPage formData={formData} onFormDataChange={handleFormDataChange} step={step} />;
             case 2:
-                return <ImageUploadForm formData={formData.img}  onFormDataChange={handleFormDataChange} step={step} />;
+                return <ImageUploadPage formData={formData.img} onFormDataChange={handleFormDataChange} step={step} />;
             case 3:
-                return <IsDeliveryForm formData={formData.deliveryMethod} onFormDataChange={handleFormDataChange} step={step}/>
+                return <IsDeliveryPage formData={formData.deliveryMethod} onFormDataChange={handleFormDataChange} step={step} />
             case 4:
-                return <PickupDetails formData={formData} onFormDataChange={handleFormDataChange} step={step}/>
+                return <PickupDetailsPage formData={formData.pickUpDetails} onFormDataChange={handleFormDataChange} step={step} />
+            case 5:
+                return <ThankYou />;
         }
     };
 

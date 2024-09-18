@@ -12,7 +12,7 @@ export const FormProgressBar = ({ currentStep = 3,className="" }) => {
     const totalSteps = 5; // Total number of steps in your form
 
     return (
-            <HStack spacing={4} className={className}>
+            <HStack spacing={4} width="50%" className={className}>
                 {[...Array(totalSteps)].map((_, index) => (
                     <Box
                         key={index}

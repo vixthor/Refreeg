@@ -1,9 +1,11 @@
-// components/FormWrapper.js
-import { Box, VStack, Button, Text, FormControl } from '@chakra-ui/react';
+import { Box, VStack, Button, Text } from '@chakra-ui/react';
 import { FormProgressBar } from './progressBar';
 import Image from 'next/image';
 import { ChevronRight, ArrowLeftCircle, ArrowRightCircle } from 'lucide-react';
 import { useSearchParams, usePathname, useRouter } from 'next/navigation';
+import { useForm, Controller } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import React from 'react';
 
 export const FormWrapper = ({
     step,
@@ -11,14 +13,25 @@ export const FormWrapper = ({
     description,
     children,
     onSubmit,
-    showPrevNextButtons = true, // Optional to toggle previous/next buttons
-    hasImage = true, // Optional to toggle form image
+    showPrevNextButtons = true,
+    hasImage = true,
     canSkipStep = false,
-    noPrevButton = false // Optional to allow skipping steps
+    noPrevButton = false,
+    schema,
+    defaultValues
 }) => {
     const searchParams = useSearchParams();
     const pathname = usePathname();
     const { replace } = useRouter();
+
+    const {
+        control,
+        handleSubmit,
+        formState: { errors }
+    } = useForm({
+        resolver: zodResolver(schema),
+        defaultValues
+    });
 
     const handlePrev = () => {
         const params = new URLSearchParams(searchParams);
@@ -28,8 +41,13 @@ export const FormWrapper = ({
 
     const handleNext = () => {
         const params = new URLSearchParams(searchParams);
-      step <= 5?  params.set('step', step + 1) : params.set('step', step);
+        step <= 5 ? params.set('step', step + 1) : params.set('step', step);
         replace(`${pathname}?${params.toString()}`);
+    };
+
+    const handleFormSubmit = (data) => {
+        onSubmit(data);
+        handleNext();
     };
 
     return (
@@ -43,9 +61,9 @@ export const FormWrapper = ({
                     height={200}
                 />
             )}
-            <VStack spacing={4} as="form" onSubmit={onSubmit} flex="1" ml={4}>
-                <div className={`flex w-full items-center ${canSkipStep?"justify-between":"justify-center"} `}>
-                    <FormProgressBar currentStep={step}  />
+            <VStack spacing={4} as="form" onSubmit={handleSubmit(handleFormSubmit)} flex="1" ml={4}>
+                <div className={`flex w-full items-center ${canSkipStep ? "justify-between" : "justify-center"} `}>
+                    <FormProgressBar currentStep={step} />
                     {canSkipStep && (
                         <p
                             className="cursor-pointer text-primaryShades-700 flex items-center"
@@ -58,8 +76,10 @@ export const FormWrapper = ({
                 <Text fontSize="xl" mb={4}>{title}</Text>
                 {description && <Text mb={2} fontSize="md">{description}</Text>}
 
-                {/* Form-specific fields will be passed here */}
-                {children}
+                {/* Pass control and errors to children */}
+                {React.Children.map(children, child =>
+                    React.cloneElement(child, { control, errors })
+                )}
 
                 {showPrevNextButtons && (
                     <div className="flex w-full items-center justify-between">
@@ -73,8 +93,7 @@ export const FormWrapper = ({
                         )}
                         <Button
                             type="submit"
-                            className={`bg-transparent  text-primaryShades-900 rounded-full p-0 ${noPrevButton ? ' mx-auto' : ''}`}
-                            onClick={handleNext}
+                            className={`bg-transparent text-primaryShades-900 rounded-full p-0 ${noPrevButton ? ' mx-auto' : ''}`}
                         >
                             <ArrowRightCircle width={50} height={50} />
                         </Button>
