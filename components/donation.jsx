@@ -1,6 +1,7 @@
 import { FormWrapper } from "./formWrapper";
 import { bookSchema, deliverySchema, imageSchema, pickUpSchema } from "@/constants/schema";
 import { BookDonationForm, ImageUploadForm, IsDeliveryForm, PickupDetails } from "./form";
+import { uploadImage } from "@/lib/firebase/action";
 
 export const BookDonationPage = ({ formData, onFormDataChange, step }) => {
     // const {
@@ -43,11 +44,18 @@ export const BookDonationPage = ({ formData, onFormDataChange, step }) => {
 };
 
 export const ImageUploadPage = ({ formData, onFormDataChange, step }) => {
-    const onSubmit = (data) => {
-        const imgData = {
-            img: data.image,
-        };
-        onFormDataChange(imgData);
+    const onSubmit = async (data) => {
+        try {
+            if (data && data.image) {
+                const imgUrl = await uploadImage(data.image); 
+                const imgData = { img: imgUrl };
+                onFormDataChange(imgData);
+            } else {
+                console.error("No image file provided.");
+            }
+        } catch (error) {
+            console.error("Error uploading image:", error);
+        }
     };
 
     return (

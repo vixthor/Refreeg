@@ -1,12 +1,9 @@
-// components/FormSwitcher.js
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BookDonationPage, ImageUploadPage, IsDeliveryPage, PickupDetailsPage } from './donation';
 import ThankYou from './ThankYou';
 
-// Import your final form
-
-const FormSwitcher = ({ step }) => {
+const FormSwitcher = ({ step, submitForm }) => {
     const [formData, setFormData] = useState({
         title: '',
         author: '',
@@ -15,30 +12,41 @@ const FormSwitcher = ({ step }) => {
         pickUpDetails: {
             fullname: "",
             email: '',
-            phoneNumber: '', // Adjust as needed for phone number validation
+            phoneNumber: '',
             pickUpAddress: '',
         },
         deliveryMethod: '',
         img: null,
-    }); // Initialize form data state
+    });
+    const [submitted, setSubmitted] = useState(false);
 
     const handleFormDataChange = (newData) => {
         setFormData(prevData => ({ ...prevData, ...newData }));
     };
-    console.log(formData);
+
+    useEffect(() => {
+        if (!submitted && (formData.deliveryMethod === 'dropoff' || step === 5)) {
+            submitForm(formData);
+            setSubmitted(true);
+        }
+    }, [formData.deliveryMethod, step, submitForm, formData, submitted]);
 
     const renderForm = () => {
+        if (submitted) {
+            return <ThankYou />;
+        }
+
         switch (step) {
             case 1:
                 return <BookDonationPage formData={formData} onFormDataChange={handleFormDataChange} step={step} />;
             case 2:
                 return <ImageUploadPage formData={formData.img} onFormDataChange={handleFormDataChange} step={step} />;
             case 3:
-                return <IsDeliveryPage formData={formData.deliveryMethod} onFormDataChange={handleFormDataChange} step={step} />
+                return <IsDeliveryPage formData={formData.deliveryMethod} onFormDataChange={handleFormDataChange} step={step} />;
             case 4:
-                return <PickupDetailsPage formData={formData.pickUpDetails} onFormDataChange={handleFormDataChange} step={step} />
-            case 5:
-                return <ThankYou />;
+                return <PickupDetailsPage formData={formData.pickUpDetails} onFormDataChange={handleFormDataChange} step={step} />;
+            default:
+                return null; // Handle unexpected steps
         }
     };
 

@@ -1,4 +1,4 @@
-
+import Header from "@/components/shared/Header";
 import Link from "next/link";
 
 // Completed By Nomso
@@ -7,6 +7,9 @@ export default function Page (){
   return (
     <div className="bg-white">
       {/* Header Section */}
+      <Header />
+
+      {/* Hero Section */}
       <div className="container mx-auto px-4 py-12 text-center">
         <div className="bg-blue-100 p-8 rounded-lg shadow-lg">
           <h1 className="text-4xl lg:text-5xl font-bold text-blue-900 mb-4">

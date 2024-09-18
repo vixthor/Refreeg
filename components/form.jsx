@@ -207,7 +207,7 @@ export const IsDeliveryForm = ({ control, errors }) => {
           <RadioGroup {...field} className=" flex" onChange={field.onChange}>
             <div className=" flex space-x-20">
               <Box textAlign="center">
-                <Radio value="delivery" size="lg">
+                <Radio value="dropoff" size="lg">
                   <Image
                     src={"/deliver.svg"}
                     alt="Delivery"
@@ -215,7 +215,7 @@ export const IsDeliveryForm = ({ control, errors }) => {
                     height={100}
                   />
                 </Radio>
-                <Text>Delivery</Text>
+                <Text>Drop Off</Text>
               </Box>
               <Box textAlign="center">
                 <Radio value="pickup" size="lg">
