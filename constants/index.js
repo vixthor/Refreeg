@@ -11,6 +11,7 @@ export const navLinks = [
     label: "Who we are",
     route: "who-we-are",
   },
+ 
 ];
 
 export const HowWeWork = [
