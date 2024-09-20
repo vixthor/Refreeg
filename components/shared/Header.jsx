@@ -32,7 +32,7 @@ const Header = () => {
         />
       </Link>
 
-      {/* These are dummy links to taste the bookdrive page and ThankYou page */}
+      {/* These are dummy links to test the bookdrive page and ThankYou page */}
       {/* <Link href="/donations">
         <p className="text-baseline-1">BookDrive</p>
       </Link>
