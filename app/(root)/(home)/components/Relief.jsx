@@ -80,12 +80,12 @@ const Relief = () => {
           </p>
 
           <div className="flex gap-4 mt-6">
-            <Link
+            {/* <Link
               href="/"
               className="bg-accent text-white py-2 px-4 rounded-md hover:bg-accent-dark transition"
             >
               Donate
-            </Link>
+            </Link> */}
             <Link
               href={socialLinks.community}
               passHref
