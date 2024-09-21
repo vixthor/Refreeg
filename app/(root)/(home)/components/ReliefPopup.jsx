@@ -1,4 +1,6 @@
-import React from 'react';
+import React from "react";
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 
 const ReliefPopup = ({ onClose, onScrollToRelief }) => {
   return (
@@ -14,10 +16,14 @@ const ReliefPopup = ({ onClose, onScrollToRelief }) => {
 
         <div className="flex flex-col items-center text-center">
           {/* Image */}
-          <img
-            src="/your-image.png"
+          <Image
+            src={"/flood.svg"}
+            // className="w-20 h-20 rounded-full"
             alt="Flood Relief"
-            className="w-20 h-20 rounded-full"
+            Flood
+            Relief
+            width={80}
+            height={80}
           />
 
           {/* Title */}
@@ -36,9 +42,10 @@ const ReliefPopup = ({ onClose, onScrollToRelief }) => {
           {/* Button */}
           <button
             onClick={onScrollToRelief}
-            className="bg-blue-600 text-white py-2 px-4 mt-6 rounded-md hover:bg-blue-700 transition w-full"
+            className="flex gap-[6px] bg-[#036] mt-6 py-[10px] px-[15px] rounded-[8px]  hover:bg-blue-700 text-white text-[15px] items-center justify-center font-semibold"
           >
             Help Save Lives
+            <ArrowRight size={"18"} />
           </button>
         </div>
       </div>
