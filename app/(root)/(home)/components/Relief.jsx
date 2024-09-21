@@ -25,7 +25,8 @@ const Relief = () => {
       className="w-full md:px-[50px] px-[10px] py-[15px] md:py-[25px]"
       id="relief-section"
     >
-      <p className="text-center text-[#A19F9F] text-[32px] md:text-[60px] font-semibold" id="relief-section">
+      <p className="text-center text-[#A19F9F] text-[32px] md:text-[60px] font-semibold">
+        Support Maiduguri Flood Relief
       </p>
       <div className="w-full md:w-[200px] h-[8px] rounded-[20px] bg-accent mx-auto" />
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 grid-cols-1 gap-8 mt-[20px]">
