@@ -6,7 +6,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 const Relief = () => {
-  const images = ["/flood1.svg", "/flood2.svg", "/flood3.svg"];
+  const images = ["/flood1.svg", "/flood2.jpg", "/flood3.png"];
 
   const settings = {
     dots: true,
@@ -36,9 +36,10 @@ const Relief = () => {
                 <Image
                   src={src}
                   alt={`Image of flood relief scenario ${index + 1}`} // Descriptive alt text
+                  // fill
+                  className="w-[65%] h-[65%] object-cover rounded-lg"
                   width={200}
                   height={200}
-                  className="object-cover rounded-lg"
                   priority
                 />
               </div>
@@ -79,12 +80,12 @@ const Relief = () => {
           </p>
 
           <div className="flex gap-4 mt-6">
-            <Link
+            {/* <Link
               href="/"
               className="bg-accent text-white py-2 px-4 rounded-md hover:bg-accent-dark transition"
             >
               Donate
-            </Link>
+            </Link> */}
             <Link
               href={socialLinks.community}
               passHref
