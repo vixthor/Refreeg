@@ -11,7 +11,6 @@ export const navLinks = [
     label: "Who we are",
     route: "who-we-are",
   },
- 
 ];
 
 export const HowWeWork = [
@@ -266,3 +265,18 @@ export const socialLinks = {
   community: "http://t.me/+d67UCIer8c01ODhk",
   Facebook: "https://www.facebook.com/profile.php?id=61564103093969",
 };
+
+export const floodReliefImages = [
+  {
+    src: "/flood1.svg",
+    alt: "Flood relief scenario 1",
+  },
+  {
+    src: "/flood2.svg",
+    alt: "Flood relief scenario 2",
+  },
+  {
+    src: "/flood3.svg",
+    alt: "Flood relief scenario 3",
+  },
+];
