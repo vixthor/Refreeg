@@ -3,19 +3,18 @@ import Slider from "react-slick";
 import { socialLinks } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 const Relief = () => {
-  // Images for the carousel
-  const images = ["", "", ""];
+  const images = ["/flood1.svg", "/flood2.svg", "/flood3.svg"];
 
-  // Slider settings for responsiveness
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    arrows: false, // you can enable arrows if desired
+    arrows: false,
     autoplay: true,
     autoplaySpeed: 3000,
   };
@@ -30,27 +29,27 @@ const Relief = () => {
       </p>
       <div className="w-full md:w-[200px] h-[8px] rounded-[20px] bg-accent mx-auto" />
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 grid-cols-1 gap-8 mt-[20px]">
-        {/* Image slider section */}
         <div className="relative w-full h-64 md:h-[400px]">
           <Slider {...settings}>
             {images.map((src, index) => (
               <div key={index} className="h-full w-full relative">
                 <Image
                   src={src}
-                  alt={`Slide ${index + 1}`}
-                  fill
+                  alt={`Image of flood relief scenario ${index + 1}`} // Descriptive alt text
+                  width={200}
+                  height={200}
                   className="object-cover rounded-lg"
+                  priority
                 />
               </div>
             ))}
           </Slider>
         </div>
 
-        {/* Text content section */}
         <div className="flex flex-col justify-center">
-          {/* <h2 className="text-2xl md:text-4xl font-bold text-neutral-700">
-            Support Maiduguri Flood Relief
-          </h2> */}
+          <h2 className="text-2xl md:text-4xl font-bold text-neutral-700">
+            Help Us Support the Maiduguri Flood Victims
+          </h2>
           <p className="mt-4 text-sm md:text-base text-neutral-600">
             Floods have devastated the community in Maiduguri, leaving families
             in urgent need of help. At RefreeG, we believe in the power of
@@ -74,23 +73,25 @@ const Relief = () => {
             </li>
           </ul>
 
-          {/* Buttons */}
+          <p className="mt-4 text-sm md:text-base text-neutral-600 font-bold">
+            Join our community to see the NGO's we're collaborating with and how
+            we plan on making a difference
+          </p>
+
           <div className="flex gap-4 mt-6">
-            {/* Donate Button */}
             <Link
               href="/"
               className="bg-accent text-white py-2 px-4 rounded-md hover:bg-accent-dark transition"
             >
               Donate
             </Link>
-
-            {/* Join our Community Button */}
             <Link
               href={socialLinks.community}
               passHref
-              className="bg-light text-accent py-2 px-4 rounded-md border border-accent hover:bg-accent hover:text-white transition"
+              className="flex gap-[6px] bg-[#036] py-[10px] px-[15px] rounded-[8px] text-white text-[15px] items-center justify-center font-semibold  hover:bg-blue-700"
             >
               Join our community
+              <ArrowRight size={"18"} />
             </Link>
           </div>
         </div>
