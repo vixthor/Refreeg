@@ -6,7 +6,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 const Relief = () => {
-  const images = ["/flood1.svg", "/flood2.jpg", "/flood3.png"];
+  const images = ["/flood1.svg", "/flood2.jpg", "/flood3.jpg", "/flood4.png"];
 
   const settings = {
     dots: true,
