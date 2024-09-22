@@ -68,7 +68,7 @@ export default function Home() {
       {confettiRun && <Confetti width={width} height={height} />}
 
       {/* Relief Popup */}
-      {showPopup && <ReliefPopup onClose={handleClosePopup} onScrollToRelief={handleScrollToRelief} />}
+{/*       {showPopup && <ReliefPopup onClose={handleClosePopup} onScrollToRelief={handleScrollToRelief} />} */}
 
       {/* Main content */}
       <Header />
