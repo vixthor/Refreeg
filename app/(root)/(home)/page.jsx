@@ -78,9 +78,9 @@ export default function Home() {
       <HowWeMakeADifference />
       <HowDoWeWork />
       {/* Relief Section with reference */}
-      <div ref={reliefRef}>
+      {/* <div ref={reliefRef}>
         <Relief />
-      </div>
+      </div> */}
       <HowWeEnsureTransparency />
       <WhatKindOfCausesDoWeSupport />
       <EffortToMakeABetterNation />
