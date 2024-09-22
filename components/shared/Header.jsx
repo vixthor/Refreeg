@@ -31,26 +31,13 @@ const Header = () => {
           height={100}
         />
       </Link>
-
-      {/* These are dummy links to test the bookdrive page and ThankYou page */}
-      {/* <Link href="/donations">
-        <p className="text-baseline-1">BookDrive</p>
-      </Link>
-
-      <Link
-        href="/donations/ThankYou"
-        className="bg-blue-600 text-white py-2 px-4 rounded-lg"
-      >
-        Thank You
-      </Link> */}
-
       <nav className="space-x-[40px] hidden items-center md:flex">
         {navLinks.map((nav) => (
           <a key={nav.route} href={`#${nav.route}`} className="text-baseline-1">
             {nav.label}
           </a>
         ))}
-        <Link href={'/bookdrive'}>Book Drive</Link>
+        {/* <Link href={'/bookdrive'}>Book Drive</Link> */}
         <Link href={socialLinks.community}>
           <button className="flex gap-[6px] bg-[#036] py-[10px] px-[15px] rounded-[8px] text-white text-[15px] items-center justify-center font-semibold">
             Our Community
@@ -82,7 +69,7 @@ const Header = () => {
                   {nav.label}
                 </a>
               ))}
-                <Link href={'/bookdrive'}>Book Drive</Link>
+                {/* <Link href={'/bookdrive'}>Book Drive</Link> */}
             </DrawerBody>
           </DrawerContent>
         </Drawer>

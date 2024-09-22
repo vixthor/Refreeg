@@ -1,5 +1,6 @@
 import Header from "@/components/shared/Header";
 import Link from "next/link";
+import Footer from "../(root)/(home)/components/Footer";
 
 // Completed By Nomso
 
@@ -92,6 +93,7 @@ export default function Page (){
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };
