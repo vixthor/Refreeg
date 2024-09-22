@@ -31,7 +31,6 @@ const Header = () => {
           height={100}
         />
       </Link>
-
       <nav className="space-x-[40px] hidden items-center md:flex">
         {navLinks.map((nav) => (
           <a key={nav.route} href={`#${nav.route}`} className="text-baseline-1">
