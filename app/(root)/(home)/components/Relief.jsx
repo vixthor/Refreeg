@@ -3,10 +3,30 @@ import Slider from "react-slick";
 import { socialLinks } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 
 const Relief = () => {
   const images = ["/flood1.svg", "/flood2.jpg", "/flood3.jpg", "/flood4.png"];
+
+  // Custom Next Arrow
+  const NextArrow = ({ onClick }) => (
+    <button
+      className="hidden md:flex absolute right-2 md:right-0 z-10 top-1/2 transform -translate-y-1/2 text-white bg-accent rounded-full p-[6px] hover:bg-accent-dark"
+      onClick={onClick}
+    >
+      <ChevronRight size={16} className="md:h-4 md:w-4" />
+    </button>
+  );
+
+  // Custom Previous Arrow
+  const PrevArrow = ({ onClick }) => (
+    <button
+      className="hidden md:flex absolute left-2 md:left-0 z-10 top-1/2 transform -translate-y-1/2 text-white bg-accent rounded-full p-[6px] hover:bg-accent-dark"
+      onClick={onClick}
+    >
+      <ChevronLeft size={16} className="md:h-4 md:w-4" />
+    </button>
+  );
 
   const settings = {
     dots: true,
@@ -14,9 +34,10 @@ const Relief = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    arrows: false,
     autoplay: true,
     autoplaySpeed: 3000,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
   };
 
   return (
@@ -32,12 +53,11 @@ const Relief = () => {
         <div className="relative w-full h-64 md:h-[400px]">
           <Slider {...settings}>
             {images.map((src, index) => (
-              <div key={index} className="h-full w-full relative">
+              <div key={index} className="relative">
                 <Image
                   src={src}
-                  alt={`Image of flood relief scenario ${index + 1}`} // Descriptive alt text
-                  // fill
-                  className="w-[65%] h-[65%] object-cover rounded-lg"
+                  alt={`Image of flood relief scenario ${index + 1}`}
+                  className="w-[65%] h-[65%] object-cover rounded-lg items-center"
                   width={200}
                   height={200}
                   priority
@@ -76,20 +96,14 @@ const Relief = () => {
 
           <p className="mt-4 text-sm md:text-base text-neutral-600 font-bold">
             Join our community to see the NGO's we're collaborating with and how
-            we plan on making a difference
+            we plan on making a difference.
           </p>
 
           <div className="flex gap-4 mt-6">
-            {/* <Link
-              href="/"
-              className="bg-accent text-white py-2 px-4 rounded-md hover:bg-accent-dark transition"
-            >
-              Donate
-            </Link> */}
             <Link
               href={socialLinks.community}
               passHref
-              className="flex gap-[6px] bg-[#036] py-[10px] px-[15px] rounded-[8px] text-white text-[15px] items-center justify-center font-semibold  hover:bg-blue-700"
+              className="flex gap-[6px] bg-[#036] py-[10px] px-[15px] rounded-[8px] text-white text-[15px] items-center justify-center font-semibold hover:bg-blue-700"
             >
               Join our community
               <ArrowRight size={"18"} />
