@@ -6,7 +6,22 @@ import Link from "next/link";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 
 const Relief = () => {
-  const images = ["/flood1.svg", "/flood2.jpg", "/flood3.jpg", "/flood4.png"];
+  const images = [
+    "/flood1.svg",
+    "/flood2.svg",
+    "/flood3.svg",
+    "/flood4.svg",
+    "/flood5.svg",
+    "/flood6.svg",
+    "/flood7.svg",
+    "/flood8.svg",
+    "/flood9.svg",
+    "/flood10.svg",
+    "/flood11.svg",
+    "/flood12.svg",
+    "/flood13.svg",
+    "/flood14.svg",
+  ];
 
   // Custom Next Arrow
   const NextArrow = ({ onClick }) => (
@@ -57,9 +72,9 @@ const Relief = () => {
                 <Image
                   src={src}
                   alt={`Image of flood relief scenario ${index + 1}`}
-                  className="w-[65%] h-[65%] object-cover rounded-lg items-center"
-                  width={200}
-                  height={200}
+                  className="ml-[70px] md:ml-[100px] w-[68%] h-[65%] object-cover rounded-lg items-center"
+                  width={867}
+                  height={732}
                   priority
                 />
               </div>
@@ -68,7 +83,7 @@ const Relief = () => {
         </div>
 
         <div className="flex flex-col justify-center">
-          <h2 className="text-2xl md:text-4xl font-bold text-neutral-700">
+          <h2 className="mt-5 text-2xl md:text-4xl font-bold text-neutral-700">
             Help Us Support the Maiduguri Flood Victims
           </h2>
           <p className="mt-4 text-sm md:text-base text-neutral-600">
@@ -103,7 +118,7 @@ const Relief = () => {
             <Link
               href={socialLinks.community}
               passHref
-              className="flex gap-[6px] bg-[#036] py-[10px] px-[15px] rounded-[8px] text-white text-[15px] items-center justify-center font-semibold hover:bg-blue-700"
+              className="flex gap-[6px] bg-[#036] py-[10px] px-[15px] rounded-[8px] text-white text-[15px] items-center justify-center font-semibold hover:bg-blue-700 mb-2"
             >
               Join our community
               <ArrowRight size={"18"} />

@@ -68,7 +68,7 @@ export default function Home() {
       {confettiRun && <Confetti width={width} height={height} />}
 
       {/* Relief Popup */}
-      {/* {showPopup && <ReliefPopup onClose={handleClosePopup} onScrollToRelief={handleScrollToRelief} />} */}
+      {showPopup && <ReliefPopup onClose={handleClosePopup} onScrollToRelief={handleScrollToRelief} />}
 
       {/* Main content */}
       <Header />
@@ -78,9 +78,9 @@ export default function Home() {
       <HowWeMakeADifference />
       <HowDoWeWork />
       {/* Relief Section with reference */}
-      {/* <div ref={reliefRef}>
+      <div ref={reliefRef}>
         <Relief />
-      </div> */}
+      </div>
       <HowWeEnsureTransparency />
       <WhatKindOfCausesDoWeSupport />
       <EffortToMakeABetterNation />
