@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 const ReliefPopup = ({ onClose, onScrollToRelief }) => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white rounded-lg p-6 max-w-lg w-full relative">
+      <div className="bg-white rounded-lg p-6 max-w-lg w-full relative mx-4 md:mx-0"> {/* Added mx-4 for mobile */}
         {/* Close button */}
         <button
           onClick={onClose}
@@ -18,10 +18,7 @@ const ReliefPopup = ({ onClose, onScrollToRelief }) => {
           {/* Image */}
           <Image
             src={"/flood.svg"}
-            // className="w-20 h-20 rounded-full"
             alt="Flood Relief"
-            Flood
-            Relief
             width={80}
             height={80}
           />

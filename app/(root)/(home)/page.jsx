@@ -25,7 +25,7 @@ export default function Home() {
   const { width, height } = useWindowSize();
   const [confettiRun, setConfettiRun] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
-  
+
   // Create a reference to the Relief section
   const reliefRef = useRef(null);
 
@@ -68,7 +68,7 @@ export default function Home() {
       {confettiRun && <Confetti width={width} height={height} />}
 
       {/* Relief Popup */}
-{/*       {showPopup && <ReliefPopup onClose={handleClosePopup} onScrollToRelief={handleScrollToRelief} />} */}
+      {/* {showPopup && <ReliefPopup onClose={handleClosePopup} onScrollToRelief={handleScrollToRelief} />} */}
 
       {/* Main content */}
       <Header />
