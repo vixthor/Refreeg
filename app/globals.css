@@ -29,6 +29,21 @@ html {
   /* border: 1px solid black; */
 }
 
+.custom-dots {
+  display: flex !important; /* Use flexbox */
+  justify-content: center;  /* Center the dots */
+  margin-top: 10px;        /* Adjust spacing as needed */
+}
+
+.custom-dots li {
+  margin: 0 5px;           /* Space out the dots */
+}
+
+.custom-dots li.slick-active button {
+  background: #000;        /* Change color for active dot */
+}
+
+
 /* body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(

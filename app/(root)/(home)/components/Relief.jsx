@@ -45,6 +45,7 @@ const Relief = () => {
 
   const settings = {
     dots: true,
+    dotsClass: "slick-dots custom-dots",
     infinite: true,
     speed: 500,
     slidesToShow: 1,
@@ -83,7 +84,7 @@ const Relief = () => {
         </div>
 
         <div className="flex flex-col justify-center">
-          <h2 className="mt-5 text-2xl md:text-4xl font-bold text-neutral-700">
+          <h2 className="mt-2 text-2xl md:text-4xl font-bold text-neutral-700">
             Help Us Support the Maiduguri Flood Victims
           </h2>
           <p className="mt-4 text-sm md:text-base text-neutral-600">
