@@ -40,7 +40,8 @@ html {
 }
 
 .custom-dots li.slick-active button {
-  background: #000;        /* Change color for active dot */
+  background: #036;        /* Change color for active dot */
+  border-radius: 50%;
 }
 
 

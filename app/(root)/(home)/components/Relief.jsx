@@ -110,7 +110,7 @@ const Relief = () => {
             </li>
           </ul>
 
-          <p className="mt-4 text-sm md:text-base text-neutral-600 font-bold">
+          <p className="mt-4 text-sm md:text-base text-black font-bold">
             Join our community to see the NGO's we're collaborating with and how
             we plan on making a difference.
           </p>
