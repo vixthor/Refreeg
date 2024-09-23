@@ -26,20 +26,20 @@ const Relief = () => {
   // Custom Next Arrow
   const NextArrow = ({ onClick }) => (
     <button
-      className="hidden md:flex absolute right-2 md:right-0 z-10 top-1/2 transform -translate-y-1/2 text-white bg-accent rounded-full p-[6px] hover:bg-accent-dark"
+      className="absolute right-2 z-10 top-1/2 transform -translate-y-1/2 text-white bg-accent rounded-full p-[6px] hover:bg-accent-dark"
       onClick={onClick}
     >
-      <ChevronRight size={16} className="md:h-4 md:w-4" />
+      <ChevronRight size={16} className="h-4 w-4" />
     </button>
   );
 
   // Custom Previous Arrow
   const PrevArrow = ({ onClick }) => (
     <button
-      className="hidden md:flex absolute left-2 md:left-0 z-10 top-1/2 transform -translate-y-1/2 text-white bg-accent rounded-full p-[6px] hover:bg-accent-dark"
+      className="absolute left-2 z-10 top-1/2 transform -translate-y-1/2 text-white bg-accent rounded-full p-[6px] hover:bg-accent-dark"
       onClick={onClick}
     >
-      <ChevronLeft size={16} className="md:h-4 md:w-4" />
+      <ChevronLeft size={16} className="h-4 w-4" />
     </button>
   );
 
