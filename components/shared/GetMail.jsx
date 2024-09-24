@@ -9,7 +9,7 @@ const GetMail = () => {
 
   return (
     <form action={async (formData) => {
-      console.log('running')
+      
       await handleSubmit(formData,toast)
      
     }} className='relative size-fit mt-2'>
