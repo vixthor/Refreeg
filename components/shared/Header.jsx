@@ -5,7 +5,7 @@ import { ArrowRight, Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-
+import { usePathname } from "next/navigation";
 
 import {
   Drawer,
@@ -20,6 +20,7 @@ import {
 
 const Header = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const pathname = usePathname();
   return (
     <header className="sticky top-0 w-full px-[10px] md:px-[50px] py-[5px] flex justify-between items-center backdrop-blur-md z-50">
       <Link href={"/"}>
@@ -32,11 +33,14 @@ const Header = () => {
         />
       </Link>
       <nav className="space-x-[40px] hidden items-center md:flex">
-        {navLinks.map((nav) => (
-          <a key={nav.route} href={`#${nav.route}`} className="text-baseline-1">
+
+        {navLinks.map((nav) => {
+          
+        const href =  pathname === "/" ?   `#${nav.route}`:`/${nav.route === "home" ? "" : nav.route}`;
+          return (<a key={nav.route} href={href} className="text-baseline-1">
             {nav.label}
-          </a>
-        ))}
+          </a>)
+        })}
         {/* <Link href={'/bookdrive'}>Book Drive</Link> */}
         <Link href={socialLinks.community}>
           <button className="flex gap-[6px] bg-[#036] py-[10px] px-[15px] rounded-[8px] text-white text-[15px] items-center justify-center font-semibold">
@@ -69,7 +73,7 @@ const Header = () => {
                   {nav.label}
                 </a>
               ))}
-                {/* <Link href={'/bookdrive'}>Book Drive</Link> */}
+              {/* <Link href={'/bookdrive'}>Book Drive</Link> */}
             </DrawerBody>
           </DrawerContent>
         </Drawer>
