@@ -1,15 +1,23 @@
 import Image from "next/image"
 import { partners } from "@/constants"
 
-const Partners = ({src,alt,title})=>{
-    return(
-        <div className="">
-            <Image src={src} alt={alt} width={200} height={200} className=" size-30 aspect-square mx-auto" />
-            <h5 className=" font-bold text-xl">{title}</h5>
-           
-        </div>
-    )
-}
+const Partners = ({ src, alt, title }) => {
+    return (
+      <div className=" size-[300px] flex flex-col items-center">
+        <Image
+          src={src}
+          alt={alt}
+          width={250} // Set the width and height here
+          height={250}
+          className="aspect-square object-contain"
+        />
+        <h5 className="font-bold text-xl hover:text-blue-700 hover:underline">
+          {title}
+        </h5>
+      </div>
+    );
+  };
+  
 
 const OurPartners = () => {
     return (
