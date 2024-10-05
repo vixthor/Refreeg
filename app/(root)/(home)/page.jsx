@@ -20,6 +20,7 @@ import CTA from "./components/CTA";
 import Footer from "./components/Footer";
 import Relief from "./components/Relief"; // Relief section component
 import ReliefPopup from "./components/ReliefPopup"; // ReliefPopup component
+import OurPartners from "./components/ourpartners";
 
 export default function Home() {
   const { width, height } = useWindowSize();
@@ -73,6 +74,7 @@ export default function Home() {
       {/* Main content */}
       <Header />
       <Hero />
+      <OurPartners />
       <About />
       <WhoWeAre />
       <HowWeMakeADifference />
