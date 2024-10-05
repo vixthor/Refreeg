@@ -3,8 +3,8 @@ import { partners } from "@/constants"
 
 const Partners = ({src,alt,title})=>{
     return(
-        <div>
-            <Image src={src} alt={alt} width={200} height={200} />
+        <div className="">
+            <Image src={src} alt={alt} width={200} height={200} className=" size-30 aspect-square mx-auto" />
             <h5 className=" font-bold text-xl">{title}</h5>
            
         </div>
