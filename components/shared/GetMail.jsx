@@ -1,3 +1,4 @@
+"use client";
 import { Mail } from 'lucide-react'
 import React from 'react'
 import { handleSubmit } from '@/lib/formActions'
