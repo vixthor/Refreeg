@@ -281,3 +281,17 @@ export const floodReliefImages = [
     alt: "Flood relief scenario 3",
   },
 ];
+
+export const partners =[
+  {
+    src: "/partners/support.svg",
+    alt: "Support the poor initiative",
+    title: "Support the poor initiative",
+  },
+  {
+    src: "/partners/yaf.svg",
+    alt: "Youths Awaken Foundation",
+    title: "Youths Awaken Foundation",
+  },
+ 
+]
