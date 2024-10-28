@@ -145,7 +145,7 @@ export const Founders = [
   {
     key: 5,
     name: "Muhammad Muzzamill Raji",
-    role: "Developer",
+    role: "Chief Technology Officer",
     desc: "Muzammil Raji serves as a Developer at RefreeG, leveraging his strong foundation in software development and problem-solving skills to enhance our technology solutions. With a keen eye for detail and a passion for coding, Muzammil plays a pivotal role in building and maintaining the platforms that support our crowdfunding initiatives. His commitment to innovation drives him to explore new technologies and methodologies, ensuring that our systems are not only efficient but also user-friendly.",
     src: "/c5.svg",
   },
@@ -162,6 +162,13 @@ export const Founders = [
     role: "Head of Community Management",
     desc: "Mr. Woody is the Head of Community Development at RefreeG. With a background in architecture, Woody brings a wealth of experience in designing and implementing sustainable infrastructure projects. His passion for building better infrastructure in Africa drives his commitment to creating resilient and thriving communities. Woody's expertise ensures that RefreeG's projects not only address immediate needs but also contribute to long-term socioeconomic growth and sustainability.",
     src: "/c7.png",
+  },
+  {
+    key: 8,
+    name: "Archibong Victoria",
+    role: "Community Manager",
+    desc: "Victoria Archibong is a passionate marketing specialist with a background in Information Technology, having earned her degree in Cyprus. With a deep understanding of how technology and digital marketing intersect, Victoria brings innovative strategies to the RefreeG team, helping to connect the platform's mission with a broader audience.  er expertise in data-driven marketing, social media outreach, and audience engagement makes her a key player in driving awareness for RefreeG’s mission to foster socioeconomic growth in Africa.",
+    src: "/c8.svg",
   },
 ];
 
