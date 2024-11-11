@@ -131,9 +131,16 @@ export const Founders = [
   {
     key: 3,
     name: "Ibrahim Ocheje Salim",
-    role: "Designer",
-    desc: "Ibrahim Salim serves as the Chief Technology Officer at RefreeG. With a robust background in software engineering, he is adept at leading the technological vision and strategy of the company. Ibrahim has a proven track record in developing scalable and secure technology solutions, which is crucial for our blockchain-based crowdfunding platform. His expertise in software development, combined with his skills in financial management and strategic planning, ensures that RefreeG's technological infrastructure is both innovative and reliable.",
+    role: "Creative Director",
+    desc: "Ibrahim Salim serves as a designer at RefreeG. With a robust background in software engineering, he is adept at leading the technological vision and strategy of the company. Ibrahim has a proven track record in developing scalable and secure technology solutions, which is crucial for our blockchain-based crowdfunding platform. His expertise in software development, combined with his skills in financial management and strategic planning, ensures that RefreeG's technological infrastructure is both innovative and reliable.",
     src: "/c3.svg",
+  },
+  {
+    key: 5,
+    name: "Muhammad Muzzamill Raji",
+    role: "Chief Technology Officer",
+    desc: "Raji is an experienced software developer with a focus on delivering high-quality code and innovative technical solutions. His expertise spans a variety of programming languages and frameworks, enabling him to tackle complex challenges and optimize RefreeG’s platform for performance and security. Raji is committed to leveraging technology to build transparent and efficient crowdfunding solutions, and is proud to be part of a team working towards a better future for Africa through RefreeG.",
+    src: "/c5.svg",
   },
   {
     key: 4,
@@ -141,13 +148,6 @@ export const Founders = [
     role: "Developer",
     desc: "Amadike Nomso is a Developer at RefreeG, where he puts his coding skills to work improving our tech solutions. With a passion for building great software and a sharp eye for detail, he's key to making sure our crowdfunding platforms run smoothly. Always eager to explore new technologies, Nomso is committed to keeping our systems efficient, reliable, and easy for users.",
     src: "/c4.svg",
-  },
-  {
-    key: 5,
-    name: "Muhammad Muzzamill Raji",
-    role: "Developer",
-    desc: "Muzammil Raji serves as a Developer at RefreeG, leveraging his strong foundation in software development and problem-solving skills to enhance our technology solutions. With a keen eye for detail and a passion for coding, Muzammil plays a pivotal role in building and maintaining the platforms that support our crowdfunding initiatives. His commitment to innovation drives him to explore new technologies and methodologies, ensuring that our systems are not only efficient but also user-friendly.",
-    src: "/c5.svg",
   },
   {
     key: 6,
