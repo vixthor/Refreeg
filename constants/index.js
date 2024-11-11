@@ -156,13 +156,6 @@ export const Founders = [
     desc: "Victor Udo serves as the Chief Marketing Officer at RefreeG, bringing his extensive background in software engineering and multimedia content creation to the forefront of our marketing strategies. His unique blend of technical and creative skills enables him to craft compelling narratives and innovative marketing campaigns that resonate with our audience. Victor is passionate about creating a better way of life, and his commitment to social impact drives him to promote causes that foster socioeconomic growth and community development.",
     src: "/c6.svg",
   },
-  {
-    key: 7,
-    name: "Iliyasu Achegbe Woody ",
-    role: "Head of Community Management",
-    desc: "Mr. Woody is the Head of Community Development at RefreeG. With a background in architecture, Woody brings a wealth of experience in designing and implementing sustainable infrastructure projects. His passion for building better infrastructure in Africa drives his commitment to creating resilient and thriving communities. Woody's expertise ensures that RefreeG's projects not only address immediate needs but also contribute to long-term socioeconomic growth and sustainability.",
-    src: "/c7.png",
-  },
 ];
 
 export const quickLinks = [
