@@ -41,7 +41,7 @@ const Header = () => {
             {nav.label}
           </a>)
         })}
-        {/* <Link href={'/bookdrive'}>Book Drive</Link> */}
+        <Link href={'/bookdrive'}>Book Drive</Link>
         <Link href={socialLinks.community}>
           <button className="flex gap-[6px] bg-[#036] py-[10px] px-[15px] rounded-[8px] text-white text-[15px] items-center justify-center font-semibold">
             Our Community
@@ -73,7 +73,7 @@ const Header = () => {
                   {nav.label}
                 </a>
               ))}
-              {/* <Link href={'/bookdrive'}>Book Drive</Link> */}
+              <Link href={'/bookdrive'}>Book Drive</Link>
             </DrawerBody>
           </DrawerContent>
         </Drawer>
