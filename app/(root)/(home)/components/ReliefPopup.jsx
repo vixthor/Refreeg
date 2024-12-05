@@ -18,6 +18,7 @@ const ReliefPopup = ({ onClose, onScrollToRelief }) => {
         <div className="flex flex-col items-center text-center">
           {/* Image */}
           <BookOpen
+          className=' bg-primaryShades-900'
             width={80}
             height={80}
           />
