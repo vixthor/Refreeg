@@ -41,7 +41,7 @@ export default function Home() {
     // Show the relief popup after 5 seconds
     const popupTimer = setTimeout(() => {
       setShowPopup(true);
-    }, 5000);
+    }, 1000);
 
     // Cleanup timers on component unmount
     return () => {
