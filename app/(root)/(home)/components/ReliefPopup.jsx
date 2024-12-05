@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, BookOpen } from "lucide-react";
+import Link from "next/link";
 
 const ReliefPopup = ({ onClose, onScrollToRelief }) => {
   return (
@@ -16,34 +17,31 @@ const ReliefPopup = ({ onClose, onScrollToRelief }) => {
 
         <div className="flex flex-col items-center text-center">
           {/* Image */}
-          <Image
-            src={"/flood.svg"}
-            alt="Flood Relief"
+          <BookOpen
+          className=' bg-primaryShades-900'
             width={80}
             height={80}
           />
 
           {/* Title */}
           <h2 className="text-2xl md:text-3xl font-bold text-neutral-800 mt-4">
-            Help Us Support the Maiduguri Flood Victims
+            Help Us Donate Books to our Book Drive
           </h2>
 
           {/* Description */}
-          <p className="mt-4 text-sm md:text-base text-neutral-600">
-            Thousands of people in Maiduguri have been displaced by devastating
-            floods, losing their homes, livelihoods, and basic necessities.
-            Together, we can make a difference by providing immediate relief and
-            helping rebuild their lives.
+          <p className="text-lg text-neutral-600 mt-2">
+            Your contributions can make a big impact. By donating books, you help provide
+            valuable resources to those in need. Join us in spreading knowledge and supporting
+            education. Together, we can make a difference.
           </p>
 
-          {/* Button */}
-          <button
-            onClick={onScrollToRelief}
+          <Link
+            href={"/bookdrive"}
             className="flex gap-[6px] bg-[#036] mt-6 py-[10px] px-[15px] rounded-[8px]  hover:bg-blue-700 text-white text-[15px] items-center justify-center font-semibold"
           >
             Help Save Lives
             <ArrowRight size={"18"} />
-          </button>
+          </Link>
         </div>
       </div>
     </div>
