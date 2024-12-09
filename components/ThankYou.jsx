@@ -24,7 +24,7 @@ const ThankYou = () => {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center relative">
       {confettiRun && <Confetti width={width} height={height} />}
-      <FormProgressBar currentStep={5} className= 'w-[20%]' />
+      <FormProgressBar currentStep={5} className='w-[20%]' />
       {/* Main Section */}
       <main className="flex flex-col items-center mt-8">
         <h1 className="text-4xl font-bold text-blue-600 mb-6 text-center">
@@ -32,7 +32,7 @@ const ThankYou = () => {
         </h1>
 
         <p className="text-gray-700 text-lg text-center mb-8">
-          Would you like to stay informed about future book drives and other
+          Would you like to stay informed about future Christmas drives and other
           charitable events? By creating an account?
         </p>
 
