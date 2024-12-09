@@ -35,13 +35,13 @@ const Header = () => {
       <nav className="space-x-[40px] hidden items-center md:flex">
 
         {navLinks.map((nav) => {
-          
-        const href =  pathname === "/" ?   `#${nav.route}`:`/${nav.route === "home" ? "" : nav.route}`;
+
+          const href = pathname === "/" ? `#${nav.route}` : `/${nav.route === "home" ? "" : nav.route}`;
           return (<a key={nav.route} href={href} className="text-baseline-1">
             {nav.label}
           </a>)
         })}
-        <Link href={'/bookdrive'}>Book Drive</Link>
+        <Link href={'/bookdrive'}>Christmas drive</Link>
         <Link href={socialLinks.community}>
           <button className="flex gap-[6px] bg-[#036] py-[10px] px-[15px] rounded-[8px] text-white text-[15px] items-center justify-center font-semibold">
             Our Community
@@ -73,7 +73,7 @@ const Header = () => {
                   {nav.label}
                 </a>
               ))}
-              <Link href={'/bookdrive'}>Book Drive</Link>
+              <Link href={'/bookdrive'}>Christmas drive</Link>
             </DrawerBody>
           </DrawerContent>
         </Drawer>

@@ -6,7 +6,7 @@ import Link from "next/link";
 const ReliefPopup = ({ onClose, onScrollToRelief }) => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white rounded-lg p-6 max-w-lg w-full relative mx-4 md:mx-0"> {/* Added mx-4 for mobile */}
+      <div className="bg-white rounded-lg p-6 max-w-2xl w-full relative mx-4 md:mx-0"> {/* Added mx-4 for mobile */}
         {/* Close button */}
         <button
           onClick={onClose}
@@ -17,15 +17,16 @@ const ReliefPopup = ({ onClose, onScrollToRelief }) => {
 
         <div className="flex flex-col items-center text-center">
           {/* Image */}
-          <BookOpen
-          className=' bg-primaryShades-900'
-            width={80}
-            height={80}
+          <Image
+            className=' bg-primaryShades-900 '
+            src={'/drive/boxdonate.jpg'}
+            width={150}
+            height={150}
           />
 
           {/* Title */}
           <h2 className="text-2xl md:text-3xl font-bold text-neutral-800 mt-4">
-            Help Us Donate Books to our Book Drive
+            Help Us Donate Books to our Christmas drive
           </h2>
 
           {/* Description */}
