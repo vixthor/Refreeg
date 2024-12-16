@@ -40,7 +40,7 @@ const ReliefPopup = ({ onClose, onScrollToRelief }) => {
             href={"/bookdrive"}
             className="flex gap-[6px] bg-[#036] mt-6 py-[10px] px-[15px] rounded-[8px]  hover:bg-blue-700 text-white text-[15px] items-center justify-center font-semibold"
           >
-            Donate
+            Donate Now
             <ArrowRight size={"18"} />
           </Link>
         </div>

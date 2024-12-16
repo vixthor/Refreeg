@@ -17,7 +17,7 @@ export default function Page() {
             RefreeG Christmas drive
           </h1>
           <p className="text-gray-700 text-lg lg:text-xl mb-6">
-            At RefreeG, we believe that access to books is crucial in unlocking
+            At RefreeG, we believe that access to books,Gadgets ,money andd cloths is crucial in unlocking
             the potential of children and communities. Our Christmas drive is
             dedicated to collecting and distributing books to those who need
             them most, from underfunded schools to community libraries in need
@@ -85,7 +85,7 @@ export default function Page() {
               <div className="text-green-500 text-3xl mb-4">📚</div>
               <h3 className="text-xl font-bold mb-2">What to Donate?</h3>
               <p className="text-gray-700">
-                We accept children's books, textbooks, novels, educational
+                We accept children's books,gadget ,money,clothes, textbooks, novels, educational
                 books, and more. Donating these books ensures they reach those
                 who will use them to grow and expand their knowledge.
               </p>
