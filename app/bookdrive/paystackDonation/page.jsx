@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useState } from "react";
 import { PaystackButton } from "react-paystack";
 import Link from "next/link";

@@ -1,5 +1,5 @@
 import { Montserrat } from "next/font/google";
-import GoogleAnalytics from '@/components/GoogleAnalytics';
+import GoogleAnalytics from "../components/GoogleAnalytics";
 import "./globals.css";
 import { Providers } from "./Providers";
 
@@ -8,11 +8,12 @@ const montserrat = Montserrat({ subsets: ["latin"] });
 export const metadata = {
   title: "RefreeG",
   description: "Building Africa’s number 1 crowdfunding platform :)",
-  keywords: "crowdfunding, Africa, fundraising, investment, startup, community,refreeg, refreegerians,RefreeG",
+  keywords:
+    "crowdfunding, Africa, fundraising, investment, startup, community,refreeg, refreegerians,RefreeG",
   author: "RefreeG",
   publisher: "RefreeG",
   robots: "index, follow",
-  icon: "/logo.png", 
+  icon: "/logo.png",
   og: {
     title: "RefreeG - Crowdfunding Platform",
     description: "Join us in building Africa’s number 1 crowdfunding platform.",
@@ -34,7 +35,6 @@ export const metadata = {
     url: "https://www.instagram.com/we_are_refreegerians",
     image: "/logo.png",
   },
-
 };
 
 export default function RootLayout({ children }) {
@@ -42,10 +42,8 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <GoogleAnalytics />
       <body className={montserrat.className}>
-        <Providers>
-        {children}
-        </Providers>
-        </body>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }

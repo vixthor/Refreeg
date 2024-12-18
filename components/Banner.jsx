@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from './shared/Button'
 import Link from 'next/link'
-import { socialLinks } from '@/constants'
+import { socialLinks } from '../constants'
 
 const Banner = ({ title, children, bg, footer }) => {
     return (
