@@ -1,5 +1,5 @@
-import Button from '@/components/shared/Button'
-import { socialLinks } from '@/constants'
+import Button from "../../../../components/shared/Button";
+import { socialLinks } from "../../../../constants";
 import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
