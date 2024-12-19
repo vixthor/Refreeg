@@ -1,4 +1,4 @@
-import Header from "@/components/shared/Header";
+import Header from "../../../components/shared/Header";
 import Image from "next/image";
 import Link from "next/link";
 
