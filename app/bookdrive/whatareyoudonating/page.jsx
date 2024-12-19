@@ -114,7 +114,7 @@ export default function page() {
                   alt="Money"
                 />
               </button>
-              {/* Label for Money */}
+              {/* Label for Money  */}
               <h3 className="text-black text-lg md:text-[20px] font-normal font-montserrat">
                 Money
               </h3>
