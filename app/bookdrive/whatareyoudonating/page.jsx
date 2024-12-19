@@ -102,7 +102,7 @@ export default function page() {
             </span>
           </Link>
 
-          {/* Donation Item - Money */}
+          {/* Donation Item - Money  */}
           <Link href="#">
             <span className="flex flex-col items-center gap-2">
               {/* Button for Money Item */}
