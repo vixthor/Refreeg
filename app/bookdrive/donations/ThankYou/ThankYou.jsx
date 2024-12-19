@@ -1,10 +1,9 @@
-// app/donations/thankyou/page.jsx
 "use client";
 
-import React, { useEffect, useState } from 'react';
-import Confetti from 'react-confetti';
-import { useWindowSize } from 'react-use'; // Optional: To handle responsive confetti
-import Link from 'next/link';
+import React, { useEffect, useState } from "react";
+import Confetti from "react-confetti";
+import { useWindowSize } from "react-use"; // Optional: To handle responsive confetti
+import Link from "next/link";
 import { FormProgressBar } from "../../../../components/progressBar";
 
 const ThankYou = () => {
@@ -24,7 +23,7 @@ const ThankYou = () => {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center relative">
       {confettiRun && <Confetti width={width} height={height} />}
-      <FormProgressBar currentStep={5} className='w-[20%]' />
+      <FormProgressBar currentStep={5} className="w-[20%]" />
       {/* Main Section */}
       <main className="flex flex-col items-center mt-8">
         <h1 className="text-4xl font-bold text-blue-600 mb-6 text-center">
@@ -32,8 +31,8 @@ const ThankYou = () => {
         </h1>
 
         <p className="text-gray-700 text-lg text-center mb-8">
-          Would you like to stay informed about future Christmas drives and other
-          charitable events? By creating an account?
+          Would you like to stay informed about future Christmas drives and
+          other charitable events? By creating an account?
         </p>
 
         {/* Call to Action Buttons */}

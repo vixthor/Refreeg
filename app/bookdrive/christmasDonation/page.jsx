@@ -1,8 +1,9 @@
 "use client";
 
 import Header from "../../../components/shared/Header";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import dynamic from "next/dynamic";
+import { useRouter } from "next/navigation"; // Import Next.js router
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../../lib/firebase/config"; // Importing db from your Firebase configuration
 
@@ -15,6 +16,7 @@ const PaystackButton = dynamic(
 );
 
 const Donate = () => {
+  const router = useRouter();
   const publicKey = process.env.NEXT_PUBLIC_PAYSTACK_KEY;
   const [email, setEmail] = useState("");
   const [amount, setAmount] = useState("");
@@ -31,19 +33,11 @@ const Donate = () => {
         donatedAt: new Date().toISOString(),
       });
       console.log("Document written with ID: ", docRef.id);
-      alert("Thanks for donating! Your details have been saved.");
+      // alert("Thanks for donating! Your details have been saved.");
     } catch (error) {
       console.error("Error adding document: ", error);
-      alert("There was an error saving your details. Please try again.");
+      // alert("There was an error saving your details. Please try again.");
     }
-  };
-
-  const handlePayment = () => {
-    if (!email || !amount || !name || !phone) {
-      alert("All fields are required. Please fill out the form completely.");
-      return false; // Prevents proceeding if validation fails
-    }
-    return true; // Proceed with the payment
   };
 
   const componentProps = {
@@ -56,12 +50,10 @@ const Donate = () => {
     publicKey,
     text: "Pay Now",
     onSuccess: () => {
-      if (handlePayment()) {
-        alert("Thanks for donating to us! We do not take it for granted!");
-        saveDonorDetails();
-      }
+      saveDonorDetails();
+      router.push("/bookdrive/donations/ThankYou"); // Redirect to the ThankYou page
     },
-    // onClose: () => alert("Wait! Please donate, don't go!"),
+    onClose: () => alert("Wait! Please donate, don't go!"),
   };
 
   const style = {
@@ -78,29 +70,27 @@ const Donate = () => {
         Make your payment here
       </h1>
       <div className="max-w-md mx-auto my-4">
-        <input
-          type="email"
-          placeholder="Email"
-          className={style.input}
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <input
-          type="number"
-          placeholder="Amount"
-          className={style.input}
-          value={amount}
-          onChange={(e) => setAmount(e.target.value)}
-          required
-        />
+        {/* Rearranged form inputs */}
         <input
           type="text"
           placeholder="Name"
           className={style.input}
           value={name}
           onChange={(e) => setName(e.target.value)}
-          required
+        />
+        <input
+          type="number"
+          placeholder="Amount to Donate"
+          className={style.input}
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
+        />
+        <input
+          type="email"
+          placeholder="Email"
+          className={style.input}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <input
           type="number"
@@ -108,13 +98,8 @@ const Donate = () => {
           className={style.input}
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
-          required
         />
-        <PaystackButton
-          className={style.button}
-          {...componentProps}
-          onClick={handlePayment}
-        />
+        <PaystackButton className={style.button} {...componentProps} />
       </div>
     </div>
   );
