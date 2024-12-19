@@ -16,10 +16,6 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
 const Donate = () => {
   const publicKey = process.env.NEXT_PUBLIC_PAYSTACK_KEY;
   const [email, setEmail] = useState("");
