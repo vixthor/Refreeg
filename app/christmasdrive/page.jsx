@@ -17,8 +17,8 @@ export default function Page() {
             RefreeG Christmas drive
           </h1>
           <p className="text-gray-700 text-lg lg:text-xl mb-6">
-            At RefreeG, we believe that access to books,Gadgets ,money andd
-            cloths is crucial in unlocking the potential of children and
+            At RefreeG, we believe that access to books, gadgets, money, and
+            clothes is crucial in unlocking the potential of children and
             communities. Our Christmas drive is dedicated to collecting and
             distributing books to those who need them most, from underfunded
             schools to community libraries in need of resources. Your
