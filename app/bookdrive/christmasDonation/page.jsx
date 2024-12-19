@@ -1,20 +1,18 @@
 "use client";
-import Header from "../../../components/shared/Header";
-import React, { useState } from "react";
-import { PaystackButton } from "react-paystack";
-import { getFirestore, collection, addDoc } from "firebase/firestore";
-import { initializeApp } from "firebase/app";
-import Link from "next/link";
 
-// Firebase configuration
-const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
-};
+import Header from "../../../components/shared/Header";
+import React, { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../../../lib/firebase/config"; // Importing db from your Firebase configuration
+
+// Dynamically import PaystackButton to avoid SSR issues
+const PaystackButton = dynamic(
+  () => import("react-paystack").then((mod) => mod.PaystackButton),
+  {
+    ssr: false,
+  }
+);
 
 const Donate = () => {
   const publicKey = process.env.NEXT_PUBLIC_PAYSTACK_KEY;
@@ -40,6 +38,14 @@ const Donate = () => {
     }
   };
 
+  const handlePayment = () => {
+    if (!email || !amount || !name || !phone) {
+      alert("All fields are required. Please fill out the form completely.");
+      return false; // Prevents proceeding if validation fails
+    }
+    return true; // Proceed with the payment
+  };
+
   const componentProps = {
     email,
     amount: amount * 100, // Paystack expects the amount in kobo
@@ -50,10 +56,12 @@ const Donate = () => {
     publicKey,
     text: "Pay Now",
     onSuccess: () => {
-      alert("Thanks for donating to us! We do not take it for granted!");
-      saveDonorDetails();
+      if (handlePayment()) {
+        alert("Thanks for donating to us! We do not take it for granted!");
+        saveDonorDetails();
+      }
     },
-    onClose: () => alert("Wait! Please donate, don't go!"),
+    // onClose: () => alert("Wait! Please donate, don't go!"),
   };
 
   const style = {
@@ -76,6 +84,7 @@ const Donate = () => {
           className={style.input}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          required
         />
         <input
           type="number"
@@ -83,6 +92,7 @@ const Donate = () => {
           className={style.input}
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
+          required
         />
         <input
           type="text"
@@ -90,6 +100,7 @@ const Donate = () => {
           className={style.input}
           value={name}
           onChange={(e) => setName(e.target.value)}
+          required
         />
         <input
           type="number"
@@ -97,8 +108,13 @@ const Donate = () => {
           className={style.input}
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
+          required
         />
-        <PaystackButton className={style.button} {...componentProps} />
+        <PaystackButton
+          className={style.button}
+          {...componentProps}
+          onClick={handlePayment}
+        />
       </div>
     </div>
   );

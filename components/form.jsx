@@ -15,104 +15,105 @@ import {
 } from "@chakra-ui/react";
 import Image from "next/image";
 import { FormWrapper } from "./formWrapper";
-import { pickUpSchema, bookSchema, deliverySchema, imageSchema } from "@/constants/schema";
+import {
+  pickUpSchema,
+  bookSchema,
+  deliverySchema,
+  imageSchema,
+} from "../constants/schema";
 
 export const BookDonationForm = ({ control, errors }) => {
-  return (<>
-    <FormControl isInvalid={!!errors.title}>
-      <Controller
-        name="title"
-        control={control}
-        render={({ field }) => (
-          <Input
-            id="title"
-            placeholder="Enter book title"
-            borderBottom="1.5px solid"
-            borderColor={errors.title ? "red.500" : "gray.300"}
-            outline="none"
-            variant={"flushed"}
-            {...field}
-          />
-        )}
-      />
-      <FormErrorMessage>{errors.title?.message}</FormErrorMessage>
-    </FormControl>
+  return (
+    <>
+      <FormControl isInvalid={!!errors.title}>
+        <Controller
+          name="title"
+          control={control}
+          render={({ field }) => (
+            <Input
+              id="title"
+              placeholder="Enter book title"
+              borderBottom="1.5px solid"
+              borderColor={errors.title ? "red.500" : "gray.300"}
+              outline="none"
+              variant={"flushed"}
+              {...field}
+            />
+          )}
+        />
+        <FormErrorMessage>{errors.title?.message}</FormErrorMessage>
+      </FormControl>
 
-    <FormControl isInvalid={!!errors.author}>
-      <Controller
-        name="author"
-        control={control}
-        render={({ field }) => (
-          <Input
-            id="author"
-            placeholder="Enter author name"
-            borderBottom="1.5px solid"
-            borderColor={errors.author ? "red.500" : "gray.300"}
-            outline="none"
-            variant={"flushed"}
-            {...field}
-          />
-        )}
-      />
-      <FormErrorMessage>{errors.author?.message}</FormErrorMessage>
-    </FormControl>
+      <FormControl isInvalid={!!errors.author}>
+        <Controller
+          name="author"
+          control={control}
+          render={({ field }) => (
+            <Input
+              id="author"
+              placeholder="Enter author name"
+              borderBottom="1.5px solid"
+              borderColor={errors.author ? "red.500" : "gray.300"}
+              outline="none"
+              variant={"flushed"}
+              {...field}
+            />
+          )}
+        />
+        <FormErrorMessage>{errors.author?.message}</FormErrorMessage>
+      </FormControl>
 
-    <FormControl isInvalid={!!errors.condition}>
-      <Controller
-        name="condition"
-        control={control}
-        render={({ field }) => (
-          <Select
-            id="condition"
-            placeholder="Select condition"
-            borderBottom="1.5px solid"
-            borderColor={errors.condition ? "red.500" : "gray.300"}
-            variant={"flushed"}
-            {...field}
-          >
-            <option value="new">New</option>
-            <option value="gently used">Gently Used</option>
-            <option value="well used">Well Used</option>
-          </Select>
-        )}
-      />
-      <FormErrorMessage>{errors.condition?.message}</FormErrorMessage>
-    </FormControl>
+      <FormControl isInvalid={!!errors.condition}>
+        <Controller
+          name="condition"
+          control={control}
+          render={({ field }) => (
+            <Select
+              id="condition"
+              placeholder="Select condition"
+              borderBottom="1.5px solid"
+              borderColor={errors.condition ? "red.500" : "gray.300"}
+              variant={"flushed"}
+              {...field}
+            >
+              <option value="new">New</option>
+              <option value="gently used">Gently Used</option>
+              <option value="well used">Well Used</option>
+            </Select>
+          )}
+        />
+        <FormErrorMessage>{errors.condition?.message}</FormErrorMessage>
+      </FormControl>
 
-    <FormControl isInvalid={!!errors.numberOfBooks}>
-      <Controller
-        name="numberOfBooks"
-        control={control}
-        render={({ field }) => (
-          <Input
-            id="numberOfBooks"
-            type="number"
-            placeholder="Enter number of books"
-            borderBottom="1.5px solid"
-            borderColor={errors.numberOfBooks ? "red.500" : "gray.300"}
-            outline="none"
-            variant={"flushed"}
-            onChange={(e) => {
-              const value = Number(e.target.value);
-              field.onChange(value);
-            }}
-            value={field.value || ""}
-          />
-        )}
-      />
-      <FormErrorMessage>{errors.numberOfBooks?.message}</FormErrorMessage>
-    </FormControl>
-    </>)
-}
-
-
+      <FormControl isInvalid={!!errors.numberOfBooks}>
+        <Controller
+          name="numberOfBooks"
+          control={control}
+          render={({ field }) => (
+            <Input
+              id="numberOfBooks"
+              type="number"
+              placeholder="Enter number of books"
+              borderBottom="1.5px solid"
+              borderColor={errors.numberOfBooks ? "red.500" : "gray.300"}
+              outline="none"
+              variant={"flushed"}
+              onChange={(e) => {
+                const value = Number(e.target.value);
+                field.onChange(value);
+              }}
+              value={field.value || ""}
+            />
+          )}
+        />
+        <FormErrorMessage>{errors.numberOfBooks?.message}</FormErrorMessage>
+      </FormControl>
+    </>
+  );
+};
 
 export const ImageUploadForm = ({ control, errors }) => {
- 
-
   const [imageUploaded, setImageUploaded] = useState(false); // State to track if an image is uploaded
-
- 
 
   return (
     <>
@@ -192,11 +193,7 @@ export const ImageUploadForm = ({ control, errors }) => {
   );
 };
 
-
-
 export const IsDeliveryForm = ({ control, errors }) => {
-
- 
   return (
     <>
       <Controller
@@ -239,9 +236,7 @@ export const IsDeliveryForm = ({ control, errors }) => {
   );
 };
 
-export const PickupDetails = ({ control,errors}) => {
-
-
+export const PickupDetails = ({ control, errors }) => {
   return (
     <>
       <FormControl isInvalid={!!errors.fullname}>
