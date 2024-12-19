@@ -8,7 +8,7 @@ export default function page() {
       {/* Header Component */}
       <Header />
 
-      {/* Back Link Section */}
+      {/* Back Link Section  */}
       <div className="px-6 py-8 md:px-14 md:py-16">
         <a href="/bookdrive" className="underline hover:text-blue-600">
           Go Back
