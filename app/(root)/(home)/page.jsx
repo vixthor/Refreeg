@@ -3,7 +3,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import Confetti from "react-confetti";
 import { useWindowSize } from "react-use"; // For responsive confetti
-import Header from "@/components/shared/Header";
+import Header from "../../../components/shared/Header";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import WhoWeAre from "./components/WhoWeAre";

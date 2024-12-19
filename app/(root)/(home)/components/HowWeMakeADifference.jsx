@@ -1,5 +1,5 @@
-import Banner from '@/components/Banner'
-import Button from '@/components/shared/Button'
+import Banner from '../../../../components/Banner'
+import Button from '../../../../components/shared/Button'
 import React from 'react'
 
 const HowWeMakeADifference = () => {
