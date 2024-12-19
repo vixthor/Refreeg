@@ -51,7 +51,7 @@ const Donate = () => {
     text: "Pay Now",
     onSuccess: () => {
       saveDonorDetails();
-      router.push("/bookdrive/donations/ThankYou"); // Redirect to the ThankYou page
+      router.push("/christmasdrive/donations/ThankYou"); // Redirect to the ThankYou page
     },
     onClose: () => alert("Wait! Please donate, don't go!"),
   };

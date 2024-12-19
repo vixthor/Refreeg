@@ -25,7 +25,7 @@ export default function Page() {
             contributions will make a tangible difference in the lives of
             children and learners around the world.
           </p>
-          <Link href="/bookdrive/whatareyoudonating">
+          <Link href="/christmasdrive/whatareyoudonating">
             <button className="bg-blue-600 text-white px-8 py-3 rounded-full inline-flex items-center">
               Proceed to Donate
               <svg

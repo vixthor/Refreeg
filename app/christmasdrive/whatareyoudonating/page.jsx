@@ -10,7 +10,7 @@ export default function page() {
 
       {/* Back Link Section  */}
       <div className="px-6 py-8 md:px-14 md:py-16">
-        <a href="/bookdrive" className="underline hover:text-blue-600">
+        <a href="/christmasdrive" className="underline hover:text-blue-600">
           Go Back
         </a>
       </div>
@@ -103,7 +103,7 @@ export default function page() {
           </Link>
 
           {/* Donation Item - Money  */}
-          <Link href="/bookdrive/money">
+          <Link href="/christmasdrive/money">
             <span className="flex flex-col items-center gap-2">
               {/* Button for Money Item */}
               <button className="border-2 border-gray-300 rounded-full p-4 md:p-2 hover:bg-[#ea9c9c] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,0.30)] transition-all duration-300">
