@@ -40,20 +40,6 @@ const Donate = () => {
     }
   };
 
-  const formatNumberWithCommas = (value) => {
-    // Remove all commas, then add commas for thousands
-    return value.replace(/,/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  };
-
-
-  const handleAmountChange = (e) => {
-    const input = e.target.value;
-    // Remove any non-numeric characters except '.'
-    const numericValue = input.replace(/[^0-9.]/g, "");
-    setAmount(formatNumberWithCommas(numericValue));
-  };
-
-
   const componentProps = {
     email,
     amount: amount * 100, // Paystack expects the amount in kobo
@@ -97,7 +83,7 @@ const Donate = () => {
           placeholder="Amount to Donate"
           className={style.input}
           value={amount}
-          onChange={handleAmountChange}
+          onChange={(e) => setAmount(e.target.value)}
         />
         <input
           type="email"
