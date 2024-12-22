@@ -2,102 +2,63 @@
 
 import Header from "../../../components/shared/Header";
 import React, { useState } from "react";
-import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
-import { collection, addDoc } from "firebase/firestore";
-import { db } from "../../../lib/firebase/config";
+// import dynamic from "next/dynamic";
+// import { collection, addDoc } from "firebase/firestore";
+// import { db } from "../../../lib/firebase/config";
 
-const PaystackButton = dynamic(
-  () => import("react-paystack").then((mod) => mod.PaystackButton),
-  {
-    ssr: false,
-  }
-);
+// const PaystackButton = dynamic(
+//   () => import("react-paystack").then((mod) => mod.PaystackButton),
+//   {
+//     ssr: false,
+//   }
+// );
 
 const Donate = () => {
   const router = useRouter();
-  const publicKey = process.env.NEXT_PUBLIC_PAYSTACK_KEY;
+  const [isModalOpen, setIsModalOpen] = useState(true); // State for modal visibility
 
-  const [email, setEmail] = useState("");
-  const [amount, setAmount] = useState("");
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [errors, setErrors] = useState({});
-  const [isFormValid, setIsFormValid] = useState(false);
-
-  const getSanitizedAmount = () => {
-    const sanitized = amount.replace(/,/g, ""); 
-    return parseFloat(sanitized) || 0;
-  };
-
-  const validateForm = () => {
-    const newErrors = {};
-
-    if (!name.trim()) newErrors.name = "Name is required.";
-    if (!email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
-      newErrors.email = "Valid email is required.";
-    if (
-      !amount.trim() ||
-      isNaN(getSanitizedAmount()) ||
-      getSanitizedAmount() <= 0
-    )
-      newErrors.amount = "Enter a valid amount greater than 99 Naira.";
-    if (!phone.trim() || !/^\d{10,15}$/.test(phone))
-      newErrors.phone = "Enter a valid phone number (10-15 digits).";
-
-    setErrors(newErrors);
-    setIsFormValid(Object.keys(newErrors).length === 0);
-  };
-
-  const handleInputChange = (setter) => (e) => {
-    setter(e.target.value);
-    validateForm();
-  };
-
-  const saveDonorDetails = async () => {
-    try {
-      await addDoc(collection(db, "Christmas drive donors"), {
-        name,
-        email,
-        phone,
-        amount: getSanitizedAmount(),
-        donatedAt: new Date().toISOString(),
-      });
-      router.push("/christmasdrive/donations/ThankYou");
-    } catch (error) {
-      console.error("Error adding document: ", error);
-    }
-  };
-
-  const handleSubmit = () => {
-    if (isFormValid) {
-      saveDonorDetails();
-    }
-  };
-
-  const componentProps = {
-    email,
-    amount: getSanitizedAmount() * 100,
-    metadata: { name, phone },
-    publicKey,
-    text: "Pay Now",
-    onSuccess: handleSubmit,
-    onClose: () => alert("Wait! Please donate, don't go!"),
+  const closeModal = () => {
+    // Redirect user to the "/whatareyoudonating" page
+    router.push("/christmasdrive/whatareyoudonating");
   };
 
   const style = {
-    input:
-      "block w-full px-4 py-2 mb-2 rounded-md border border-gray-300 focus:outline-none focus:border-primary-500",
-    error: "text-red-500 text-sm mb-2",
-    button:
-      "block w-full px-4 py-2 bg-[#1369A1] text-white rounded-md transition duration-300 ease-in-out hover:bg-[#0A4B79] hover:shadow-lg disabled:bg-gray-300 disabled:cursor-not-allowed",
-    amountWrapper: "flex items-center gap-2",
-    nairaIcon: "text-lg font-bold text-gray-500",
+    modalOverlay:
+      "fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center z-50",
+    modalContent:
+      "bg-white rounded-lg p-6 shadow-lg text-center max-w-md mx-auto",
+    illustration: "w-48 h-48 mx-auto mb-4", // Increased size of the illustration
+    modalTitle: "text-xl font-semibold mb-2 text-gray-800",
+    modalMessage: "text-gray-600 mb-4",
+    closeButton: "bg-[#1369A1] text-white px-4 py-2 rounded hover:bg-[#0A4B79]",
   };
 
   return (
     <div className="px-4">
-      <Header />
+      {isModalOpen && (
+        <div className={style.modalOverlay}>
+          <div className={style.modalContent}>
+            <div className={style.illustration}>
+              {/* Replace this with an actual image or illustration */}
+              <img
+                src="/maintenance.jpg"
+                alt="Maintenance Illustration"
+                className="w-full h-full"
+              />
+            </div>
+            <h2 className={style.modalTitle}>Donations Temporarily Paused</h2>
+            <p className={style.modalMessage}>
+              Donations are paused for maintenance. Please check back soon. 😊💙
+            </p>
+            <button onClick={closeModal} className={style.closeButton}>
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* <Header />
       <h1 className="text-center text-[25px] my-4 font-[600]">
         Make your donation here 😊🎄
       </h1>
@@ -108,48 +69,15 @@ const Donate = () => {
         <input
           type="text"
           placeholder="Name"
-          className={style.input}
+          className="block w-full px-4 py-2 mb-2 rounded-md border border-gray-300 focus:outline-none focus:border-primary-500"
           value={name}
-          onChange={handleInputChange(setName)}
+          onChange={(e) => setName(e.target.value)}
         />
-        {errors.name && <div className={style.error}>{errors.name}</div>}
-
-        <div className={style.amountWrapper}>
-          <span className={style.nairaIcon}>₦</span>
-          <input
-            type="text"
-            placeholder="Amount to Donate (e.g., 20,000)"
-            className={style.input}
-            value={amount}
-            onChange={handleInputChange(setAmount)}
-          />
-        </div>
-        {errors.amount && <div className={style.error}>{errors.amount}</div>}
-
-        <input
-          type="email"
-          placeholder="Email"
-          className={style.input}
-          value={email}
-          onChange={handleInputChange(setEmail)}
-        />
-        {errors.email && <div className={style.error}>{errors.email}</div>}
-
-        <input
-          type="number"
-          placeholder="Phone number"
-          className={style.input}
-          value={phone}
-          onChange={handleInputChange(setPhone)}
-        />
-        {errors.phone && <div className={style.error}>{errors.phone}</div>}
-
         <PaystackButton
-          className={style.button}
-          {...componentProps}
+          className="block w-full px-4 py-2 bg-[#1369A1] text-white rounded-md transition duration-300 ease-in-out hover:bg-[#0A4B79] hover:shadow-lg disabled:bg-gray-300 disabled:cursor-not-allowed"
           disabled={!isFormValid}
         />
-      </div>
+      </div> */}
     </div>
   );
 };
