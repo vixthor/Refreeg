@@ -97,7 +97,7 @@ const Donate = () => {
     <div className="px-4">
       <Header />
       <h1 className="text-center text-[25px] my-4 font-[600]">
-        Make your payment here
+        Make your donation here 😊🎄
       </h1>
       <div className="max-w-md mx-auto my-4">
         <input
