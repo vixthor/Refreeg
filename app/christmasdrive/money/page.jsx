@@ -23,11 +23,11 @@ const Donate = () => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [errors, setErrors] = useState({});
-  const [isFormValid, setIsFormValid] = useState(false); // State to track form validity
+  const [isFormValid, setIsFormValid] = useState(false);
 
   const getSanitizedAmount = () => {
-    const sanitized = amount.replace(/,/g, ""); // Remove commas
-    return parseFloat(sanitized) || 0; // Convert to number, default to 0 if invalid
+    const sanitized = amount.replace(/,/g, ""); 
+    return parseFloat(sanitized) || 0;
   };
 
   const validateForm = () => {
@@ -46,12 +46,12 @@ const Donate = () => {
       newErrors.phone = "Enter a valid phone number (10-15 digits).";
 
     setErrors(newErrors);
-    setIsFormValid(Object.keys(newErrors).length === 0); // Update validity
+    setIsFormValid(Object.keys(newErrors).length === 0);
   };
 
   const handleInputChange = (setter) => (e) => {
     setter(e.target.value);
-    validateForm(); // Revalidate form on input change
+    validateForm();
   };
 
   const saveDonorDetails = async () => {
@@ -91,6 +91,8 @@ const Donate = () => {
     error: "text-red-500 text-sm mb-2",
     button:
       "block w-full px-4 py-2 bg-[#1369A1] text-white rounded-md transition duration-300 ease-in-out hover:bg-[#0A4B79] hover:shadow-lg disabled:bg-gray-300 disabled:cursor-not-allowed",
+    amountWrapper: "flex items-center gap-2",
+    nairaIcon: "text-lg font-bold text-gray-500",
   };
 
   return (
@@ -99,6 +101,9 @@ const Donate = () => {
       <h1 className="text-center text-[25px] my-4 font-[600]">
         Make your donation here 😊🎄
       </h1>
+      <div className="text-center text-sm text-gray-500 mb-4">
+        All donations are processed in Naira (₦).
+      </div>
       <div className="max-w-md mx-auto my-4">
         <input
           type="text"
@@ -109,13 +114,16 @@ const Donate = () => {
         />
         {errors.name && <div className={style.error}>{errors.name}</div>}
 
-        <input
-          type="text"
-          placeholder="Amount to Donate (e.g., 20,000)"
-          className={style.input}
-          value={amount}
-          onChange={handleInputChange(setAmount)}
-        />
+        <div className={style.amountWrapper}>
+          <span className={style.nairaIcon}>₦</span>
+          <input
+            type="text"
+            placeholder="Amount to Donate (e.g., 20,000)"
+            className={style.input}
+            value={amount}
+            onChange={handleInputChange(setAmount)}
+          />
+        </div>
         {errors.amount && <div className={style.error}>{errors.amount}</div>}
 
         <input
@@ -139,7 +147,7 @@ const Donate = () => {
         <PaystackButton
           className={style.button}
           {...componentProps}
-          disabled={!isFormValid} // Disable button if form is invalid
+          disabled={!isFormValid}
         />
       </div>
     </div>
