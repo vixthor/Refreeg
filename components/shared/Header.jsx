@@ -76,7 +76,7 @@ const Header = () => {
               <p>Menu</p>
               <X onClick={onClose} />
             </DrawerHeader>
-            <DrawerBody className="flex flex-col space-y-2">
+            <DrawerBody className="flex flex-col space-y-4 text-center">
               {navLinks.map((nav) => (
                 <button
                   key={nav.route}
@@ -84,12 +84,16 @@ const Header = () => {
                     handleNavigation(nav.route);
                     onClose();
                   }}
-                  className="text-baseline-1 border-none outline-none"
+                  className="py-2 px-4 text-lg font-medium border-none outline-none text-gray-700 hover:bg-gray-100 rounded-md"
                 >
                   {nav.label}
                 </button>
               ))}
-              <Link href="/christmasdrive" onClick={onClose}>
+              <Link
+                href="/christmasdrive"
+                onClick={onClose}
+                className="py-2 px-4 text-lg font-medium text-gray-700 hover:bg-gray-100 rounded-md"
+              >
                 Christmas drive
               </Link>
             </DrawerBody>
