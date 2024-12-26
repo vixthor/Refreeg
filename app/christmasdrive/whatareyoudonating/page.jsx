@@ -19,7 +19,7 @@ export default function page() {
       <div className="flex flex-col gap-14 my-14">
         {/* Heading */}
         <div className="text-center">
-          <h1 className="text-3xl sm:text-4xl md:text-[56px] text-[#424242] font-bold font-montserrat leading-[67.20px]">
+          <h1 className="text-2xl sm:text-3xl md:text-[48px] text-[#424242] font-bold font-montserrat leading-[60px]">
             What Are You Donating?
           </h1>
         </div>
