@@ -67,7 +67,7 @@ const Header = () => {
 
       <nav className="md:hidden">
         <Menu onClick={onOpen} className="size-[40px]" />
-        <Drawer placement="top" onClose={onClose} isOpen={isOpen}>
+        <Drawer placement="top"  onClose={onClose} isOpen={isOpen}>
           <DrawerOverlay />
           <DrawerContent>
             <DrawerHeader
@@ -77,7 +77,7 @@ const Header = () => {
               <p>Menu</p>
               <X onClick={onClose} />
             </DrawerHeader>
-            <DrawerBody className="flex flex-col space-y-4 text-center">
+            <DrawerBody className="flex flex-col bg-white space-y-4 text-center">
               {navLinks.map((nav) => (
                 <button
                   key={nav.route}
