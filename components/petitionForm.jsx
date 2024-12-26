@@ -3,7 +3,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { petitionSchema } from '../constants/schema';
-import { FormInput } from './FormInput';
+import { FormInput } from './forminput';
 import { savePetition } from '../lib/firebase/action';
 import { useRouter } from 'next/navigation';
 
