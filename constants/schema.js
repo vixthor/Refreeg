@@ -1,4 +1,5 @@
-import { z } from 'zod';
+import { z } from 'zod'; // Keep this
+
 export const pickUpSchema = z.object({
     fullname: z.string().min(1, "Full name is required"),
     email: z.string().email("Invalid email address"),
@@ -19,7 +20,6 @@ export const imageSchema = z.object({
         }),
 });
 
-
 export const bookSchema = z.object({
     title: z.string().min(1, "Book title is required"),
     author: z.string().min(1, "Author name is required"),
@@ -32,12 +32,12 @@ export const bookSchema = z.object({
         .max(100, "Max 100 books"),
 });
 
-
-
 export const petitionSchema = z.object({
-  firstName: z.string().min(1, 'First name is required'),
-  lastName: z.string().min(1, 'Last name is required'),
-  email: z.string().email('Invalid email address'),
-  message: z.string().min(10, 'Please provide at least 10 characters').max(1000, 'Message is too long'),
+    firstName: z.string().min(1, 'First name is required'),
+    lastName: z.string().min(1, 'Last name is required'),
+    email: z.string().email('Invalid email address'),
+    message: z
+        .string()
+        .max(1000, 'Message is too long'),
+    receiveUpdates: z.boolean(),
 });
-

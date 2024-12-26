@@ -12,7 +12,7 @@ export default async function PetitionsSuccessPage() {
   console.log("Total Petition Count: ", totalPetitionCount); // Debugging: Check the fetched value
 
   return (
-    <div className="max-w-xl mx-auto my-10 px-4 sm:px-6 md:px-8 text-center space-y-6">
+    <div className=" mx-auto my-10 px-4 sm:px-6 md:px-8 text-center space-y-6">
       <h1 className="text-black text-2xl sm:text-3xl md:text-4xl font-bold font-montserrat">
         Thank You for Signing!
       </h1>
@@ -23,13 +23,13 @@ export default async function PetitionsSuccessPage() {
       <Image
         src="/petitions/image 30.png"
         alt="Sign"
-        className="w-full h-auto mx-auto"
-        width={600}
-        height={600}
+        className="mx-auto"
+        width={500}
+        height={500}
       />
 
       {/* Progress Bar */}
-      <div className="w-full h-2 bg-gray-300 rounded-full mb-4">
+      <div className="w-[604px] h-2 bg-gray-300 rounded-full mx-auto mb-4">
         <div
           className="h-full bg-[#0070E0] rounded-full"
           style={{ width: `${progress}%` }}
