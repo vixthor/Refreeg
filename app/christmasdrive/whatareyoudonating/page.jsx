@@ -6,17 +6,17 @@ export default function page() {
   return (
     <div>
       {/* Header Component */}
-      <Header />
+   
 
       {/* Back Link Section  */}
-      <div className="px-6 py-8 md:px-14 md:py-16">
+      {/* <div className="px-6 py-8 md:px-14 md:py-16">
         <a href="/christmasdrive" className="underline hover:text-blue-600">
           Go Back
         </a>
-      </div>
+      </div> */}
 
       {/* Main Content Section */}
-      <div className="flex flex-col gap-14">
+      <div className="flex flex-col gap-14 my-14">
         {/* Heading */}
         <div className="text-center">
           <h1 className="text-3xl sm:text-4xl md:text-[56px] text-[#424242] font-bold font-montserrat leading-[67.20px]">

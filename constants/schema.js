@@ -31,3 +31,13 @@ export const bookSchema = z.object({
         .min(1, "At least one book must be donated")
         .max(100, "Max 100 books"),
 });
+
+
+
+export const petitionSchema = z.object({
+  firstName: z.string().min(1, 'First name is required'),
+  lastName: z.string().min(1, 'Last name is required'),
+  email: z.string().email('Invalid email address'),
+  message: z.string().min(10, 'Please provide at least 10 characters').max(1000, 'Message is too long'),
+});
+

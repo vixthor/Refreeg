@@ -41,6 +41,8 @@ module.exports = {
                   5: "#333333",
                   9:'#AAB9C5'
               },
+              pink:"#EF4387",
+              blut:"#0066CC",
               faq: {1: "#214570", 2: "#E6EEF8"},
               cardbg: "#B6B5B4",
               banner: "#183251",
