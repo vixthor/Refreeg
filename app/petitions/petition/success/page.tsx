@@ -12,30 +12,31 @@ export default async function PetitionsSuccessPage() {
   console.log("Total Petition Count: ", totalPetitionCount); // Debugging: Check the fetched value
 
   return (
-    <div className="max-w-xl mx-auto my-14 text-center space-y-4">
-      <h1 className="text-black text-[28px] font-bold font-montserrat ">
+    <div className="max-w-xl mx-auto my-10 px-4 sm:px-6 md:px-8 text-center space-y-6">
+      <h1 className="text-black text-2xl sm:text-3xl md:text-4xl font-bold font-montserrat">
         Thank You for Signing!
       </h1>
-      <p className="text-center text-black text-lg font-normal font-montserrat">
+      <p className="text-black text-base sm:text-lg md:text-xl font-normal font-montserrat">
         Your voice matters. Together, we’re one step closer to making a
         difference.
       </p>
       <Image
         src="/petitions/image 30.png"
         alt="Sign"
+        className="w-full h-auto mx-auto"
         width={600}
         height={600}
       />
 
       {/* Progress Bar */}
-      <div className="w-full h-2 bg-gray-300 rounded-full mb-6">
+      <div className="w-full h-2 bg-gray-300 rounded-full mb-4">
         <div
           className="h-full bg-[#0070E0] rounded-full"
           style={{ width: `${progress}%` }}
         ></div>
       </div>
 
-      <h1 className="font-semibold text-4xl space-x-2">
+      <h1 className="font-semibold text-2xl sm:text-3xl md:text-4xl space-x-2">
         <span className="bg-gradient-to-t from-blue-500 to-[#ef4286] text-transparent bg-clip-text">
           {totalPetitionCount !== null ? (
             <Counter start={0} end={totalPetitionCount} duration={0.5} />
@@ -43,20 +44,23 @@ export default async function PetitionsSuccessPage() {
             <span>Loading...</span>
           )}
         </span>
-        <span>people have signed. Our goal is 1000!</span>
+        <span className="block sm:inline">
+          people have signed. Our goal is 1000!
+        </span>
       </h1>
 
-      <div className="flex flex-col sm:flex-row sm:space-x-4 items-center justify-center mb-8">
-        <button className="px-10 py-4 rounded-md border-2 border-[#0070e0] text-[#0070e0] text-lg font-semibold font-montserrat leading-snug">
+      <div className="flex flex-col sm:flex-row sm:space-x-4 items-center justify-center gap-4">
+        <button className="px-6 sm:px-10 py-3 sm:py-4 rounded-md border-2 border-[#0070e0] text-[#0070e0] text-base sm:text-lg font-semibold font-montserrat">
           Share this petition
         </button>
-        <button className="px-10 py-4 bg-[#336bad] rounded-md justify-center items-center gap-1.5 text-white">
+        <button className="px-6 sm:px-10 py-3 sm:py-4 bg-[#336bad] rounded-md text-white text-base sm:text-lg">
           Join our community
         </button>
       </div>
     </div>
   );
 }
+
 
 {
   /* 
