@@ -1,4 +1,4 @@
-import { PetitionForm } from "../../components/petitionForm";
+import { PetitionForm } from "../../../components/petitionForm";
 
 
 export default function PetitionsPage() {

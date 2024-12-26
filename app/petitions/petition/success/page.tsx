@@ -1,8 +1,8 @@
-import { socialLinks } from "../../../constants";
+import { socialLinks } from "../../../../constants";
 import { CheckCircle } from "lucide-react";
 import Link from "next/link";
-import { getTotalPetitionCount } from "../../../lib/firebase/action";
-import { Counter } from "../../../components/counter";
+import { getTotalPetitionCount } from "../../../../lib/firebase/action";
+import { Counter } from "../../../../components/counter";
 
 
 export default async function PetitionsSuccessPage() {
@@ -12,7 +12,7 @@ const totalPetitionCount = await getTotalPetitionCount();
             <CheckCircle size={264} className=" mx-auto text-blue-900" />
             <p className=" text-2xl ">Your signature has been submitted successfully</p>
             <h1 className=" font-semibold text-4xl ">
-                <span className="bg-gradient-to-t from-blut to-pink bg-clip-text text-transparent"><Counter start={0} end={totalPetitionCount} duration={5}/> </span>
+                <span className="bg-gradient-to-t from-blut to-pink bg-clip-text text-transparent"><Counter start={0} end={totalPetitionCount} duration={.5}/> </span>
                 Petition Submitted</h1>
             <div className="flex flex-col sm:flex-row sm:space-x-4 w-full items-center justify-center mb-8">
                 <Link href={socialLinks.community}>
