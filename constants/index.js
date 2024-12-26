@@ -158,7 +158,7 @@ export const Founders = [
   },
   {
     key: 7,
-    name: "Tyrone Ayomide",
+    name: "Temitope Tyrone Ayomide",
     role: "Developer",
     desc: "Tyrone Ayomide is a software engineer and video editor with a strong passion for blending technology and creativity to deliver impactful solutions. At RefreeG, Tyrone leverages a unique combination of technical expertise and multimedia skills to develop innovative content and strategies that engage and inspire audiences.",
     src: "/c9.png",
@@ -184,7 +184,12 @@ export const quickLinks = [
   {
     key: 4,
     label: "Christmas Drive",
-    route: "christmasdrive",
+    route: "/christmasdrive",
+  },
+  {
+    key: 5,
+    label: "Petitions",
+    route: "/petitions",
   },
 ];
 

@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -13,6 +13,7 @@ export function PetitionForm() {
     control,
     handleSubmit,
     formState: { errors },
+    register, // Destructure register
   } = useForm({
     resolver: zodResolver(petitionSchema),
     defaultValues: {
@@ -20,33 +21,30 @@ export function PetitionForm() {
       lastName: '',
       email: '',
       message: '',
+      receiveUpdates: false, // Default value for checkbox
     },
   });
 
-  const onSubmit = async(data) => {
+  const onSubmit = async (data) => {
     console.log(data);
-   await savePetition(data);
-   router.push('/petitions/success');
-   
-    
+    await savePetition(data);
+    router.push('/petitions/petition/success');
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-     
-        <FormInput
-          name="firstName"
-          control={control}
-          error={errors.firstName}
-          placeholder="First Name"
-        />
-        <FormInput
-          name="lastName"
-          control={control}
-          error={errors.lastName}
-          placeholder="Last Name"
-        />
-      
+      <FormInput
+        name="firstName"
+        control={control}
+        error={errors.firstName}
+        placeholder="First Name"
+      />
+      <FormInput
+        name="lastName"
+        control={control}
+        error={errors.lastName}
+        placeholder="Last Name"
+      />
       
       <FormInput
         name="email"
@@ -60,9 +58,22 @@ export function PetitionForm() {
         name="message"
         control={control}
         error={errors.message}
-        placeholder="What would you like to tell us on the matter?"
+        placeholder="Would you like to provide further information on the situation?"
         multiline
       />
+      
+      {/* Checkbox for receiving updates */}
+      <div className="flex items-center space-x-2">
+        <input
+          type="checkbox"
+          id="receiveUpdates"
+          {...register('receiveUpdates')}
+          className="h-5 w-5 "
+        />
+        <label htmlFor="receiveUpdates" className="text-sm text-gray-700">
+          Let me receive updates on the cause and other causes like this via email.
+        </label>
+      </div>
 
       <button
         type="submit"
