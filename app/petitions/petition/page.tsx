@@ -1,10 +1,11 @@
 'use client';
 
+import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { PetitionForm } from "../../../components/petitionForm";
 import Image from "next/image";
 
-export default function PetitionsPage() {
+function PetitionsPageContent() {
   // Get the title from the search params
   const title = useSearchParams().get("title") || "Loading...";
 
@@ -51,5 +52,13 @@ export default function PetitionsPage() {
         <PetitionForm />
       </div>
     </main>
+  );
+}
+
+export default function PetitionsPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <PetitionsPageContent />
+    </Suspense>
   );
 }
