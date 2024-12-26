@@ -8,7 +8,7 @@ export default function Page() {
   return (
     <div className="bg-white">
       {/* Header Section */}
-      <Header />
+
 
       {/* Hero Section */}
       <div className="container mx-auto px-4 py-12 text-center">
@@ -95,7 +95,6 @@ export default function Page() {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }
