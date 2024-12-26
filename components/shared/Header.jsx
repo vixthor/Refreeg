@@ -97,6 +97,13 @@ const Header = () => {
               >
                 Christmas drive
               </Link>
+              <Link
+                href="/petitions"
+                onClick={onClose}
+                className="py-2 px-4 text-lg font-medium text-gray-700 hover:bg-gray-100 rounded-md"
+              >
+                Petitions
+              </Link>
             </DrawerBody>
           </DrawerContent>
         </Drawer>
