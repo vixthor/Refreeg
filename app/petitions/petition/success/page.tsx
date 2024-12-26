@@ -13,7 +13,7 @@ export default async function PetitionsSuccessPage() {
 
   return (
     <div className="max-w-xl mx-auto my-14 text-center space-y-4">
-      <h1 className="text-black text-[28px] font-bold font-montserrat">
+      <h1 className="text-black text-[28px] font-bold font-montserrat ">
         Thank You for Signing!
       </h1>
       <p className="text-center text-black text-lg font-normal font-montserrat">
