@@ -33,7 +33,7 @@ export function FormInput({
                 {...field}
                 id={name}
                 placeholder={placeholder}
-                className={`${inputClasses} min-h-[120px] resize-y`}
+                className={`${inputClasses} resize-y`}
               />
             ) : (
               <input

@@ -20,14 +20,18 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@shadcn/ui": ["node_modules/@shadcn/ui"]
+    }
   },
   "include": [
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "@shadcn/ui/components/ui/sheet.jsx"  ],
   "exclude": [
     "node_modules"
   ]
