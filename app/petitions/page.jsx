@@ -3,43 +3,38 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { getDocs, collection } from "firebase/firestore";
-import { db } from "../../../../lib/firebase/config";
 
-const initialPetitions = [
+const petitions = [
   {
     id: 1,
     title: "GET DAHIRU FIRED!",
     description:
       "This petition is calling for justice and accountability. Together, we can create change. Add your voice by signing today and be a part of the solution.",
-    daysLeft: "10 days left",
-    signatures: 0, // Initialize with 0 or any default value
+    endDate: "2025-01-05", // Example end date
+    signatures: "signature",
     image: "/petitions/women.png",
     link: "/petitions/petition",
   },
   // Add more petitions here
 ];
 
+const calculateDaysLeft = (endDate) => {
+  const today = new Date();
+  const end = new Date(endDate);
+  const timeDiff = end - today;
+  const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+  return daysLeft > 0 ? `${daysLeft} days left` : "Expired";
+};
+
 export default function Home() {
-  const [petitions, setPetitions] = useState(initialPetitions);
+  const [updatedPetitions, setUpdatedPetitions] = useState([]);
 
   useEffect(() => {
-    const fetchPetitions = async () => {
-      try {
-        const petitionRef = collection(db, "petitions");
-        const snapshot = await getDocs(petitionRef);
-        const fetchedPetitions = snapshot.docs.map(doc => ({
-          ...doc.data(),
-          id: doc.id,
-          signatures: doc.data().signatures || 0,
-        }));
-        setPetitions(fetchedPetitions);
-      } catch (error) {
-        console.error("Error fetching petitions:", error);
-      }
-    };
-
-    fetchPetitions();
+    const updated = petitions.map(petition => ({
+      ...petition,
+      daysLeft: calculateDaysLeft(petition.endDate),
+    }));
+    setUpdatedPetitions(updated);
   }, []);
 
   return (
@@ -48,7 +43,7 @@ export default function Home() {
         Make your voice heard and support a cause
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {petitions.map(petition => (
+        {updatedPetitions.map(petition => (
           <div key={petition.id} className="max-w-[300px] h-[500px] mx-auto">
             <div className="rounded-tr-2xl rounded-tl-2xl overflow-hidden">
               <Image
@@ -82,7 +77,7 @@ export default function Home() {
                         width={10}
                         height={10}
                       />
-                      <span>{petition.signatures}</span> signatures
+                      {petition.signatures}
                     </p>
                   </span>
                 </div>
