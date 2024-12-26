@@ -1,20 +1,19 @@
-import Header from "@/components/shared/Header";
-import FormSwitcher from "@/components/groupForm";
+import Header from "../../../components/shared/Header";
+import FormSwitcher from "../../../components/groupForm";
 import Footer from "../../(root)/(home)/components/Footer";
-import { saveBookDriveData } from '@/lib/firebase/action';
-
+import { saveBookDriveData } from "../../../lib/firebase/action";
 
 export default function Page({ searchParams }) {
   const step = parseInt(searchParams.step) || 1;
 
   const submitForm = async (formData) => {
-    'use server';
+    "use server";
     try {
       await saveBookDriveData(formData);
     } catch (error) {
       console.error("Error saving Christmas drive data: ", error);
     }
-  }
+  };
 
   return (
     <div className="">

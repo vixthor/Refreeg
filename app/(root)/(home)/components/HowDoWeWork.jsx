@@ -1,5 +1,5 @@
-import Card from "@/components/shared/Card";
-import { HowWeWork } from "@/constants";
+import Card from "../../../../components/shared/Card";
+import { HowWeWork } from "../../../../constants";
 import React from "react";
 
 const HowDoWeWork = () => {

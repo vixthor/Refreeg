@@ -37,7 +37,7 @@ const ReliefPopup = ({ onClose, onScrollToRelief }) => {
           </p>
 
           <Link
-            href={"/bookdrive"}
+            href={"/christmasdrive"}
             className="flex gap-[6px] bg-[#036] mt-6 py-[10px] px-[15px] rounded-[8px]  hover:bg-blue-700 text-white text-[15px] items-center justify-center font-semibold"
           >
             Donate Now

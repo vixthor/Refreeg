@@ -5,8 +5,7 @@ import React, { useEffect, useState } from 'react';
 import Confetti from 'react-confetti';
 import { useWindowSize } from 'react-use'; // Optional: To handle responsive confetti
 import Link from 'next/link';
-import { FormProgressBar } from "@/components/progressBar";
-
+import { FormProgressBar } from "../components/progressBar"
 const ThankYou = () => {
   const { width, height } = useWindowSize();
   const [confettiRun, setConfettiRun] = useState(false);

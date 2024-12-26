@@ -1,7 +1,7 @@
 import { FormWrapper } from "./formWrapper";
-import { bookSchema, deliverySchema, imageSchema, pickUpSchema } from "@/constants/schema";
+import { bookSchema, deliverySchema, imageSchema, pickUpSchema } from "../constants/schema";
 import { BookDonationForm, ImageUploadForm, IsDeliveryForm, PickupDetails } from "./form";
-import { uploadImage } from "@/lib/firebase/action";
+import { uploadImage } from "../lib/firebase/action";
 
 export const BookDonationPage = ({ formData, onFormDataChange, step }) => {
     // const {

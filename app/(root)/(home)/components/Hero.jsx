@@ -1,5 +1,5 @@
-import HeroComponent from "@/components/shared/HeroComponent";
-import { socialLinks } from "@/constants";
+import HeroComponent from "../../../../components/shared/HeroComponent";
+import { socialLinks } from "../../../../constants";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
