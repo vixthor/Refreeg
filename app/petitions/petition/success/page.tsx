@@ -49,18 +49,17 @@ export default async function PetitionsSuccessPage() {
         </span>
       </h1>
 
-      <div className="flex flex-col sm:flex-row sm:space-x-4 items-center justify-center gap-4">
-        <button className="px-6 sm:px-10 py-3 sm:py-4 rounded-md border-2 border-[#0070e0] text-[#0070e0] text-base sm:text-lg font-semibold font-montserrat">
+      <div className="flex flex-col sm:flex-row sm:space-x-4 items-center justify-center gap-4 sm:gap-0">
+        <button className="w-full sm:w-auto px-6 sm:px-10 py-3 sm:py-4 rounded-md border-2 border-[#0070e0] text-[#0070e0] text-base sm:text-lg font-semibold font-montserrat text-center transition-transform transform hover:bg-[#0070e0] hover:text-white hover:scale-105">
           Share this petition
         </button>
-        <button className="px-6 sm:px-10 py-3 sm:py-4 bg-[#336bad] rounded-md text-white text-base sm:text-lg">
+        <button className="w-full sm:w-auto px-6 sm:px-10 py-3 sm:py-4 bg-[#336bad] rounded-md text-white text-base sm:text-lg font-semibold font-montserrat text-center transition-transform transform hover:bg-[#274a80] hover:scale-105">
           Join our community
         </button>
       </div>
     </div>
   );
 }
-
 
 {
   /* 
