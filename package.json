@@ -29,6 +29,7 @@
     "react-hook-form": "^7.53.0",
     "react-paystack": "^6.0.0",
     "react-slick": "^0.30.2",
+    "react-toastify": "^11.0.2",
     "react-use": "^17.5.1",
     "slick-carousel": "^1.8.1",
     "tailwind-merge": "^2.6.0",

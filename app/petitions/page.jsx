@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { getTotalPetitionCount } from "lib/firebase/action"; // Adjust the path
 
 const petitions = [
   {
@@ -11,7 +12,6 @@ const petitions = [
     description:
       "This petition is calling for justice and accountability. Together, we can create change. Add your voice by signing today and be a part of the solution.",
     endDate: "2025-01-05", // Example end date
-    signatures: "signature",
     image: "/petitions/women.png",
     link: "/petitions/petition",
   },
@@ -28,8 +28,20 @@ const calculateDaysLeft = (endDate) => {
 
 export default function Home() {
   const [updatedPetitions, setUpdatedPetitions] = useState([]);
+  const [signatureCount, setSignatureCount] = useState(0);
 
   useEffect(() => {
+    const fetchPetitionCount = async () => {
+      try {
+        const count = await getTotalPetitionCount();
+        setSignatureCount(count);
+      } catch (error) {
+        console.error("Error fetching petition count:", error);
+      }
+    };
+
+    fetchPetitionCount();
+
     const updated = petitions.map(petition => ({
       ...petition,
       daysLeft: calculateDaysLeft(petition.endDate),
@@ -77,7 +89,7 @@ export default function Home() {
                         width={10}
                         height={10}
                       />
-                      {petition.signatures}
+                      {signatureCount} Signatures
                     </p>
                   </span>
                 </div>
@@ -106,4 +118,4 @@ export default function Home() {
       </div>
     </div>
   );
-}
+};
