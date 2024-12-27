@@ -6,9 +6,9 @@ export default function Page({searchParams}){
 
     return (
         <div className="">
-            <Header/>
+            {/* <Header/> */}
             <ThankYou />
-            <Footer/>
+            {/* <Footer/> */}
         </div>
     )
 }
