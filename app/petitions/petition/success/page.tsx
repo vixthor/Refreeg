@@ -32,7 +32,8 @@ export default function PetitionsSuccessPage() {
         Thank You for Signing!
       </h1>
       <p className="text-black text-base sm:text-lg md:text-xl font-normal font-montserrat">
-        Your voice matters. Together, we’re one step closer to making a difference.
+        Your voice matters. Together, we’re one step closer to making a
+        difference.
       </p>
       <Image
         src="/petitions/image 30.png"
@@ -43,7 +44,7 @@ export default function PetitionsSuccessPage() {
       />
 
       {/* Progress Bar */}
-      <div className="w-[604px] h-2 bg-gray-300 rounded-full mx-auto mb-4">
+      <div className="w-full max-w-[90%] sm:max-w-[80%] md:max-w-[604px] h-2 bg-gray-300 rounded-full mx-auto mb-4">
         <div
           className="h-full bg-[#0070E0] rounded-full"
           style={{ width: `${progress}%` }}
@@ -79,8 +80,11 @@ export default function PetitionsSuccessPage() {
       </div>
 
       {/* ShareSheet Modal */}
-      <ShareSheet isOpen={isShareSheetOpen} onClose={() => setIsShareSheetOpen(false)} />
-      
+      <ShareSheet
+        isOpen={isShareSheetOpen}
+        onClose={() => setIsShareSheetOpen(false)}
+      />
+
       {/* JoinSheet Modal */}
       <JoinSheet
         isOpen={isJoinSheetOpen}
