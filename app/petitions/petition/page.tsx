@@ -13,10 +13,10 @@ function PetitionsPageContent() {
     <main className="flex flex-col md:flex-row">
       {/* Left Column */}
       <div className="px-6 py-8 bg-[#f3f6fb] w-full md:w-[537px] flex flex-col gap-12 md:gap-48">
-        <div>
+        <div className="flex flex-col gap-4">
           {/* Header with Image */}
           <div className="flex gap-2 items-center">
-            <Image src="/petitions/image.svg" alt="sign up" width={150} height={150} />
+            <Image src="/petitions/Frame 1.svg" alt="sign up" width={150} height={150} />
             <h1 className="text-[#5a5555] text-[20px] md:text-[25px] font-bold font-montserrat">
               Sign Our Petition
             </h1>

@@ -1,10 +1,11 @@
 'use client';
+
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { petitionSchema } from '../constants/schema';
 import { FormInput } from './forminput';
-import { savePetition } from '../lib/firebase/action';
+import { savePetition, checkEmailExists } from '../lib/firebase/action';
 import { useRouter } from 'next/navigation';
 
 export function PetitionForm() {
@@ -12,22 +13,41 @@ export function PetitionForm() {
   const {
     control,
     handleSubmit,
+    setError,
     formState: { errors },
-    register, // Destructure register
+    register,
   } = useForm({
     resolver: zodResolver(petitionSchema),
     defaultValues: {
       firstName: '',
       lastName: '',
       email: '',
-      message: '',
-      receiveUpdates: false, // Default value for checkbox
+      message: '', 
+      receiveUpdates: false, 
     },
   });
 
   const onSubmit = async (data) => {
-    console.log(data);
-    await savePetition(data);
+    const formattedData = {
+      FirstName: data.firstName,
+      LastName: data.lastName,
+      Email: data.email,
+      Message: data.message, 
+      Receiveupdate: data.receiveUpdates, 
+    };
+
+    const emailExists = await checkEmailExists(formattedData.Email);
+
+    if (emailExists) {
+      setError('email', {
+        type: 'manual',
+        message: 'This email has already been used to sign the petition.',
+      });
+      return; // Prevent form submission
+    }
+
+    console.log(formattedData);
+    await savePetition(formattedData);
     router.push('/petitions/petition/success');
   };
 
@@ -45,15 +65,20 @@ export function PetitionForm() {
         error={errors.lastName}
         placeholder="Last Name"
       />
-      
-      <FormInput
-        name="email"
-        control={control}
-        error={errors.email}
-        type="email"
-        placeholder="Email Address"
-      />
-      
+
+      <div>
+        <FormInput
+          name="email"
+          control={control}
+          error={errors.email && errors.email.type !== 'manual' ? errors.email : undefined}
+          type="email"
+          placeholder="Email Address"
+        />
+        {errors.email && errors.email.type === 'manual' && (
+          <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+        )}
+      </div>
+
       <FormInput
         name="message"
         control={control}
@@ -62,15 +87,14 @@ export function PetitionForm() {
         multiline
       />
       
-      {/* Checkbox for receiving updates */}
-      <div className="flex items-center space-x-2">
+      <div className="flex items-center gap-2">
         <input
           type="checkbox"
           id="receiveUpdates"
           {...register('receiveUpdates')}
-          className="h-5 w-5 "
+          className="h-5 w-5 flex-shrink-0"
         />
-        <label htmlFor="receiveUpdates" className="text-sm text-gray-700">
+        <label htmlFor="receiveUpdates" className="text-black text-xs font-normal font-montserrat">
           Let me receive updates on the cause and other causes like this via email.
         </label>
       </div>

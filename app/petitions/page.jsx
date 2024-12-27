@@ -1,5 +1,9 @@
+"use client";
+
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { getTotalPetitionCount } from "lib/firebase/action"; // Adjust the path
 
 const petitions = [
   {
@@ -7,22 +11,51 @@ const petitions = [
     title: "GET DAHIRU FIRED!",
     description:
       "This petition is calling for justice and accountability. Together, we can create change. Add your voice by signing today and be a part of the solution.",
-    daysLeft: "10 days left",
-    signatures: "1 signature",
+    endDate: "2025-01-05", // Example end date
     image: "/petitions/women.png",
     link: "/petitions/petition",
   },
   // Add more petitions here
 ];
 
+const calculateDaysLeft = (endDate) => {
+  const today = new Date();
+  const end = new Date(endDate);
+  const timeDiff = end - today;
+  const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+  return daysLeft > 0 ? `${daysLeft} days left` : "Expired";
+};
+
 export default function Home() {
+  const [updatedPetitions, setUpdatedPetitions] = useState([]);
+  const [signatureCount, setSignatureCount] = useState(0);
+
+  useEffect(() => {
+    const fetchPetitionCount = async () => {
+      try {
+        const count = await getTotalPetitionCount();
+        setSignatureCount(count);
+      } catch (error) {
+        console.error("Error fetching petition count:", error);
+      }
+    };
+
+    fetchPetitionCount();
+
+    const updated = petitions.map(petition => ({
+      ...petition,
+      daysLeft: calculateDaysLeft(petition.endDate),
+    }));
+    setUpdatedPetitions(updated);
+  }, []);
+
   return (
     <div className="px-[10px] md:px-[50px] space-y-5 my-10">
       <p className="text-[#726c6c] text-lg font-medium font-montserrat">
         Make your voice heard and support a cause
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {petitions.map((petition) => (
+        {updatedPetitions.map(petition => (
           <div key={petition.id} className="max-w-[300px] h-[500px] mx-auto">
             <div className="rounded-tr-2xl rounded-tl-2xl overflow-hidden">
               <Image
@@ -34,7 +67,7 @@ export default function Home() {
               />
             </div>
             <div className="shadow-xl rounded-b-2xl">
-              <div className="px-1">
+              <div className="px-2">
                 <div className="py-4">
                   <h2 className="text-black text-xl font-bold font-montserrat">
                     {petition.title}
@@ -51,12 +84,12 @@ export default function Home() {
                     </p>
                     <p className="flex gap-1 text-black text-sm font-normal font-montserrat">
                       <Image
-                        src="/petitions/clock 2.svg"
+                        src="/petitions/pencil-square 1.svg"
                         alt="Signatures"
                         width={10}
                         height={10}
                       />
-                      {petition.signatures}
+                      {signatureCount} Signatures
                     </p>
                   </span>
                 </div>
@@ -85,4 +118,4 @@ export default function Home() {
       </div>
     </div>
   );
-}
+};
