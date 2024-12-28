@@ -14,7 +14,7 @@ module.exports = {
   		},
   		colors: {
   			accent: {
-  				DEFAULT: 'hsl(var(--accent))',
+  				DEFAULT: '#00478f',
   				foreground: 'hsl(var(--accent-foreground))'
   			},
   			baseline: {
