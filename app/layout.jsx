@@ -44,9 +44,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <GoogleAnalytics />
-      {/* <head>
-        <AdSense pId="ca-pub-6133323682562865"/>
-      </head> */}
+      <head>
+        <AdSense pId="6133323682562865"/>
+      </head>
       <body className={montserrat.className}>
         <Header/>
         <Providers>{children}</Providers>
