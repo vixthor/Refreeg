@@ -13,7 +13,7 @@ const petitions = [
       "This petition is calling for justice and accountability. Together, we can create change. Add your voice by signing today and be a part of the solution.",
     endDate: "2025-01-05", // Example end date
     image: "/petitions/women.png",
-    link: "/petitions/petition",
+    link: "/petitions/joincommunity",
   },
   // Add more petitions here
 ];
