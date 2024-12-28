@@ -24,7 +24,7 @@ export default function JoinCommunity() {
         <h1 className="text-center text-[#0a0a0b] text-xl sm:text-2xl font-medium font-montserrat mb-2">
           What to do to ensure your petition counts:)
         </h1>
-        <p className="text-[#0a0a0b] text-sm sm:text-base font-normal font-montserrat">
+        <p className="text-[#0a0a0b]  text-sm sm:text-base font-normal font-montserrat">
           Your voice matters, and every signature takes us closer to driving
           meaningful change. By joining our community, you not only sign this
           petition but become part of a movement that ensures real impact. As a
