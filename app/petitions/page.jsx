@@ -61,7 +61,7 @@ export default function Home() {
         {petitions.map(({ id, title, description, endDate, image, link }) => (
           <div
             key={id}
-            className="w-full sm:w-[350px] md:w-[400px] h-[420px]"
+            className="w-full sm:w-[350px] md:w-[400px] h-[450px] md:h-[420px]"
           >
             {/* Petition image */}
             <div className="rounded-tr-2xl rounded-tl-2xl overflow-hidden">
@@ -85,7 +85,7 @@ export default function Home() {
               <div className="flex gap-2 items-center py-2 w-full flex-wrap sm:flex-nowrap">
                 <span className="flex gap-1 items-center w-full sm:w-auto">
                   <Image
-                    src="/petitions/account.png"
+                    src="/petitions/Account.png"
                     alt="Bloody civilians"
                     width={20}
                     height={20}
