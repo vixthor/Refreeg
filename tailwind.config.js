@@ -13,8 +13,11 @@ module.exports = {
   			'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))'
   		},
   		colors: {
-			accent: "#336BAD",
-  			baseline: {
+        accent: {
+  				DEFAULT: '#00478f',
+  				foreground: 'hsl(var(--accent-foreground))'
+  			},
+        baseline: {
   				'1': '#433E3F',
   				'2': '#151314'
   			},

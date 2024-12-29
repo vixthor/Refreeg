@@ -4,6 +4,7 @@ import "./globals.css";
 import { Providers } from "./Providers";
 import Header from "../components/shared/Header";
 import Footer from "./(root)/(home)/components/Footer";
+import AdSense from "../components/AdSense";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -43,6 +44,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <GoogleAnalytics />
+      <head>
+        <AdSense pId="6133323682562865"/>
+      </head>
       <body className={montserrat.className}>
         <Header/>
         <Providers>{children}</Providers>

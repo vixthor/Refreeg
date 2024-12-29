@@ -27,7 +27,7 @@ const ThankYou = () => {
       {/* Main Section */}
       <main className="flex flex-col items-center mt-8">
         <h1 className="text-4xl font-bold text-blue-600 mb-6 text-center">
-          Thank You For Your Donation!
+          Thank You, An Email Will Be Sent When your Donation is Confirmed!
         </h1>
 
         <p className="text-gray-700 text-lg text-center mb-8">
