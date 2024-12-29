@@ -1,8 +1,9 @@
 'use client';
 
-import { Suspense } from "react";
+import { Suspense, useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { PetitionForm } from "../../../components/petitionForm";
+import JoinCommunityPopup from "components/shared/JoinCommunityPopup";
 import Image from "next/image";
 
 function PetitionsPageContent() {
@@ -17,7 +18,7 @@ function PetitionsPageContent() {
           {/* Header with Image */}
           <div className="flex gap-2 items-center">
             <Image src="/petitions/Frame 1.svg" alt="sign up" width={150} height={150} />
-            <h1 className="text-[#5a5555] text-[20px] md:text-[25px] font-bold font-montserrat">
+            <h1 className="text-[#5a5555] text-base md:text-[25px] font-semibold font-montserrat">
               Sign Our Petition
             </h1>
           </div>
@@ -56,9 +57,24 @@ function PetitionsPageContent() {
 }
 
 export default function PetitionsPage() {
+  const [showPopup, setShowPopup] = useState(false);
+
+  useEffect(() => {
+    // Show the popup when the page loads
+    setShowPopup(true);
+  }, []);
+
+  const handleClosePopup = () => {
+    // Close the popup
+    setShowPopup(false);
+  };
+
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <PetitionsPageContent />
+      {showPopup && (
+        <JoinCommunityPopup isOpen={showPopup} onClose={handleClosePopup} />
+      )}
     </Suspense>
   );
 }
