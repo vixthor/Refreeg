@@ -85,7 +85,7 @@ export default function Home() {
               <div className="flex gap-2 items-center py-2 w-full flex-wrap sm:flex-nowrap">
                 <span className="flex gap-1 items-center w-full sm:w-auto">
                   <Image
-                    src="/petitions/account.png"
+                    src="/petitions/Account.png"
                     alt="Bloody civilians"
                     width={20}
                     height={20}
