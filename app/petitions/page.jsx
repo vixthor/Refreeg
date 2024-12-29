@@ -82,7 +82,7 @@ export default function Home() {
               </h2>
 
               {/* Info items (creator, days left, signatures) */}
-              <div className="flex gap-2 items-center py-2 w-full flex-wrap sm:flex-nowrap">
+              <div className="flex gap-2 items-center py-2 w-full  flex-wrap sm:flex-nowrap">
                 <span className="flex gap-1 items-center w-full sm:w-auto">
                   <Image
                     src="/petitions/Account.png"
