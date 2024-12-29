@@ -57,11 +57,11 @@ export default function Home() {
       </p>
 
       {/* Petition cards grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 auto-cols-auto">
+      <div className="flex flex-col md:flex-row gap-6">
         {petitions.map(({ id, title, description, endDate, image, link }) => (
           <div
             key={id}
-            className="w-full sm:w-[350px] md:w-[400px] h-[500px] mx-auto"
+            className="w-full sm:w-[350px] md:w-[400px] h-[420px]"
           >
             {/* Petition image */}
             <div className="rounded-tr-2xl rounded-tl-2xl overflow-hidden">
@@ -126,30 +126,28 @@ export default function Home() {
                 />
               </button>
             </Link>
-
-            {/* Link to create a new petition */}
-            <div className="mt-4">
-              <a
-                href="#"
-                className="underline flex items-center"
-                onClick={(e) => {
-                  e.preventDefault(); // Prevent default link behavior
-                  setShowModal(true); // Show the modal when clicked
-                }}
-              >
-                Create your own petitions
-                <Image
-                  src="/petitions/chevron-right 1.svg"
-                  alt="Create your own petition"
-                  width={20}
-                  height={20}
-                />
-              </a>
-            </div>
           </div>
         ))}
       </div>
-
+      {/* Link to create a new petition */}
+      <div className="mt-4">
+        <a
+          href="#"
+          className="underline flex items-center"
+          onClick={(e) => {
+            e.preventDefault(); // Prevent default link behavior
+            setShowModal(true); // Show the modal when clicked
+          }}
+        >
+          Create your own petitions
+          <Image
+            src="/petitions/chevron-right 1.svg"
+            alt="Create your own petition"
+            width={20}
+            height={20}
+          />
+        </a>
+      </div>
       {/* Modal for creating a new petition */}
       <Modal isOpen={showModal} onClose={() => setShowModal(false)} />
     </div>

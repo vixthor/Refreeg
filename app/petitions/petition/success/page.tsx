@@ -52,14 +52,14 @@ export default function PetitionsSuccessPage() {
       </div>
 
       <h1 className="font-semibold text-2xl sm:text-3xl md:text-4xl space-x-2">
-        <span className="bg-gradient-to-t from-blue-500 to-[#ef4286] text-transparent bg-clip-text">
+        <span className="bg-gradient-to-t from-blue-500 to-[#ef4286] text-transparent bg-clip-text font-montserrat">
           {totalPetitionCount !== null ? (
             <Counter start={0} end={totalPetitionCount} duration={0.5} />
           ) : (
             <span>Loading...</span>
           )}
         </span>
-        <span className="block sm:inline">
+        <span className="block sm:inline text-[#0a0a0b] text-3xl font-medium font-montserrat">
           people have signed. Our goal is 1000!
         </span>
       </h1>
