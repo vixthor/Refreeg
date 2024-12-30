@@ -7,7 +7,7 @@ import { useSearchParams } from "next/navigation";
 
 function JoinCommunityContent() {
   const searchParams = useSearchParams();
-  const title = searchParams.get("title") || "Default Title";
+  const title = searchParams.get("title") || "Loading...";
 
   return (
     <div className="flex flex-col px-6 sm:px-12 gap-4 sm:gap-6">
