@@ -1,13 +1,13 @@
 "use client";
 
-import React, { useState, useEffect } from "react"; // Import useEffect
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { socialLinks } from "../../../../constants"; // Assuming you have this for the community link
+import { socialLinks } from "../../../../constants"; 
 import Image from "next/image";
-import { getTotalPetitionCount } from "../../../../lib/firebase/action"; // Import the function
+import { getTotalPetitionCount } from "../../../../lib/firebase/action"; 
 import { Counter } from "../../../../components/counter";
-import ShareSheet from "../../../../components/shared/shareSheet"; // Import your ShareSheet component
-import JoinSheet from "../../../../components/shared/joinSheet"; // Import your JoinSheet component
+import ShareSheet from "../../../../components/shared/shareSheet";
+import JoinSheet from "../../../../components/shared/joinSheet"; 
 
 export default function PetitionsSuccessPage() {
   const [isShareSheetOpen, setIsShareSheetOpen] = useState(false);
