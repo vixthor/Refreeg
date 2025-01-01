@@ -1,9 +1,12 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { PaystackButton } from 'react-paystack';
+import dynamic from 'next/dynamic'; // Dynamically import PaystackButton to avoid server-side rendering
 import { db } from '../../../lib/firebase/config'; // Ensure this is set up
 import { collection, addDoc } from 'firebase/firestore';
+
+// Dynamically import PaystackButton to prevent it from being loaded server-side
+const PaystackButton = dynamic(() => import('react-paystack').then((mod) => mod.PaystackButton), { ssr: false });
 
 const Donate = () => {
   const router = useRouter();
@@ -50,6 +53,12 @@ const Donate = () => {
     modalMessage: "text-gray-600 mb-4",
     closeButton: "bg-[#1369A1] text-white px-4 py-2 rounded hover:bg-[#0A4B79]",
   };
+
+  useEffect(() => {
+    if (!publicKey) {
+      console.error("Paystack public key is missing. Check your environment variables.");
+    }
+  }, [publicKey]);
 
   return (
     <div className="px-4">
