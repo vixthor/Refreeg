@@ -1,111 +1,62 @@
-'use client';
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
-import dynamic from 'next/dynamic'; // Dynamically import PaystackButton to avoid server-side rendering
-import { db } from '../../../lib/firebase/config'; // Ensure this is set up
-import { collection, addDoc } from 'firebase/firestore';
+"use client";
 
-// Dynamically import PaystackButton to prevent it from being loaded server-side
-const PaystackButton = dynamic(() => import('react-paystack').then((mod) => mod.PaystackButton), { ssr: false });
+import React, { useState } from "react";
+import { useRouter } from "next/navigation"; // Import useRouter
 
-const Donate = () => {
-  const router = useRouter();
-  const [isModalOpen, setIsModalOpen] = useState(true);
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [amount, setAmount] = useState('');
+const PaymentPage = () => {
+  const [isCopied, setIsCopied] = useState(false);
+  const router = useRouter(); // Initialize router
 
-  const publicKey = process.env.NEXT_PUBLIC_PAYSTACK_KEY; // Replace with your key
+  const accountNumber = "1022688902";
 
-  const handlePaystackSuccess = async (reference) => {
-    try {
-      await addDoc(collection(db, "donations"), {
-        name,
-        email,
-        amount: Number(amount),
-        reference: reference.reference,
-        timestamp: new Date(),
-      });
-      router.push("/christmasdrive/whatareyoudonating");
-    } catch (error) {
-      console.error("Error saving to Firebase:", error);
-    }
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(accountNumber);
+    setIsCopied(true);
+    setTimeout(() => setIsCopied(false), 2000);
   };
 
-  const componentProps = {
-    email,
-    amount: amount * 100, // Paystack expects amount in kobo
-    publicKey,
-    text: "Donate Now",
-    onSuccess: handlePaystackSuccess,
-    onClose: () => console.log("Payment canceled"),
+  const handleDone = () => {
+    router.push("/christmasdrive/donations/ThankYou"); // Redirect to "thankyou" page
   };
-
-  const closeModal = () => {
-    router.push("/christmasdrive/whatareyoudonating");
-  };
-
-  const style = {
-    modalOverlay: "fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center z-50",
-    modalContent: "bg-white rounded-lg p-6 shadow-lg text-center max-w-md mx-auto",
-    illustration: "w-48 h-48 mx-auto mb-4",
-    modalTitle: "text-xl font-semibold mb-2 text-gray-800",
-    modalMessage: "text-gray-600 mb-4",
-    closeButton: "bg-[#1369A1] text-white px-4 py-2 rounded hover:bg-[#0A4B79]",
-  };
-
-  useEffect(() => {
-    if (!publicKey) {
-      console.error("Paystack public key is missing. Check your environment variables.");
-    }
-  }, [publicKey]);
 
   return (
-    <div className="px-4">
-      <h1 className="text-center text-[25px] my-4 font-[600]">
-        Make your donation here 😊🎄
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 px-4">
+      <h1 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-800 text-center mb-2">
+        Please donate by transferring to the details below
       </h1>
-      <div className="text-center text-sm text-gray-500 mb-4">
-        All donations are processed in Naira (₦).
-      </div>
-      <div className="max-w-md mx-auto my-4">
-        <input
-          type="text"
-          placeholder="Name"
-          className="block w-full px-4 py-2 mb-2 rounded-md border border-gray-300 focus:outline-none focus:border-primary-500"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          className="block w-full px-4 py-2 mb-2 rounded-md border border-gray-300 focus:outline-none focus:border-primary-500"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="number"
-          placeholder="Amount in Naira"
-          className="block w-full px-4 py-2 mb-2 rounded-md border border-gray-300 focus:outline-none focus:border-primary-500"
-          value={amount}
-          onChange={(e) => setAmount(e.target.value)}
-        />
-        {name && email && amount ? (
-          <PaystackButton
-            {...componentProps}
-            className="block w-full px-4 py-2 bg-[#1369A1] text-white rounded-md transition duration-300 ease-in-out hover:bg-[#0A4B79] hover:shadow-lg"
-          />
-        ) : (
+      <p className="text-sm sm:text-base text-gray-500 text-center mb-4">
+        A confirmation email will be sent once we confirm your donation!
+      </p>
+
+      <div className="border-dashed border-2 border-gray-300 rounded-lg p-6 max-w-md w-full">
+        <div className="flex justify-between items-center mb-3">
+          <p className="text-gray-700 font-medium">
+            Account number: <span className="font-bold">{accountNumber}</span>
+          </p>
           <button
-            disabled
-            className="block w-full px-4 py-2 bg-gray-300 text-white rounded-md cursor-not-allowed"
+            onClick={copyToClipboard}
+            className="bg-blue-600 text-white text-sm px-3 py-1 rounded hover:bg-blue-700 focus:outline-none"
           >
-            Please fill all fields
+            {isCopied ? "Copied!" : "Copy"}
           </button>
-        )}
+        </div>
+        <p className="text-gray-700 font-medium mb-2">
+          Bank Name: <span className="font-bold">United Bank for Africa</span>
+        </p>
+        <p className="text-gray-700 font-medium">
+          Name on Account:{" "}
+          <span className="font-bold">Destined Children's Orphanage</span>
+        </p>
       </div>
+
+      <button
+        onClick={handleDone} // Call handleDone on click
+        className="mt-6 bg-blue-600 text-white px-8 py-2 rounded hover:bg-blue-700 focus:outline-none"
+      >
+        Done!
+      </button>
     </div>
   );
 };
 
-export default Donate;
+export default PaymentPage;
