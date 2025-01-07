@@ -45,12 +45,12 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <GoogleAnalytics />
       <head>
-        <AdSense pId="6133323682562865"/>
+        <AdSense pId="6133323682562865" />
       </head>
-      <body className={montserrat.className}>
-        <Header/>
-        <Providers>{children}</Providers>
-        <Footer/>
+      <body className={`${montserrat.className} flex flex-col min-h-screen`}>
+        <Header />
+        <main className="flex-grow">{children}</main>
+        <Footer />
       </body>
     </html>
   );
