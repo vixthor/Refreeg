@@ -24,7 +24,7 @@ const calculateDaysLeft = (endDate) => {
   const daysLeft = Math.ceil(
     (new Date(endDate) - new Date()) / (1000 * 60 * 60 * 24)
   );
-  return daysLeft > 0 ? `${daysLeft} days left` : "Expired"; // Returns "Expired" if the date has passed
+  return daysLeft > 0 ? `${daysLeft} days left` : "1 day left"; // Returns "1 Day left" if the date has passed
 };
 
 export default function Home() {
