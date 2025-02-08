@@ -55,7 +55,7 @@ const Header = () => {
             {nav.label}
           </button>
         ))}
-        <Link href="/christmasdrive">Christmas drive</Link>
+        <Link href="/christmasdrive">Ramadan drive</Link>
         <Link href="/petitions">Petitions</Link>
         <Link href={socialLinks.community}>
           <button className="flex gap-[6px] bg-[#036] py-[10px] px-[15px] rounded-[8px] text-white text-[15px] items-center justify-center font-semibold">
@@ -67,7 +67,7 @@ const Header = () => {
 
       <nav className="md:hidden">
         <Menu onClick={onOpen} className="size-[40px]" />
-        <Drawer placement="top"  onClose={onClose} isOpen={isOpen}>
+        <Drawer placement="top" onClose={onClose} isOpen={isOpen}>
           <DrawerOverlay />
           <DrawerContent>
             <DrawerHeader
@@ -95,7 +95,7 @@ const Header = () => {
                 onClick={onClose}
                 className="py-2 px-4 text-lg font-medium text-gray-700 hover:bg-gray-100 rounded-md"
               >
-                Christmas drive
+                Ramadan drive
               </Link>
               <Link
                 href="/petitions"

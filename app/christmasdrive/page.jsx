@@ -14,12 +14,12 @@ export default function Page() {
       <div className="container mx-auto px-4 py-12 text-center">
         <div className="bg-blue-100 p-8 rounded-lg shadow-lg">
           <h1 className="text-4xl lg:text-5xl font-bold text-blue-900 mb-4">
-            RefreeG Christmas drive
+            RefreeG Ramadan drive
           </h1>
           <p className="text-gray-700 text-lg lg:text-xl mb-6">
             At RefreeG, we believe that access to books, gadgets, money, and
             clothes is crucial in unlocking the potential of children and
-            communities. Our Christmas drive is dedicated to collecting and
+            communities. Our Ramadan drive is dedicated to collecting and
             distributing books to those who need them most, from underfunded
             schools to community libraries in need of resources. Your
             contributions will make a tangible difference in the lives of
@@ -50,7 +50,7 @@ export default function Page() {
       {/* About Section */}
       <div className="container mx-auto px-4 py-8">
         <h2 className="text-3xl font-semibold text-center text-gray-800 mb-8">
-          About Our Christmas drive
+          About Our Ramadan drive
         </h2>
         <div className="flex flex-col lg:flex-row items-center justify-between">
           {/* Why Donate */}

@@ -183,7 +183,7 @@ export const quickLinks = [
   },
   {
     key: 4,
-    label: "Christmas Drive",
+    label: "Ramadan drive",
     route: "/christmasdrive",
   },
   {
@@ -274,7 +274,7 @@ export const socialLinks = {
   linkedin: "https://www.linkedin.com/company/102040636",
   community: "http://t.me/+d67UCIer8c01ODhk",
   Facebook: "https://www.facebook.com/profile.php?id=61564103093969",
-  Youtube:"https://www.youtube.com/@Refreeg",
+  Youtube: "https://www.youtube.com/@Refreeg",
 };
 
 export const floodReliefImages = [
@@ -292,7 +292,7 @@ export const floodReliefImages = [
   },
 ];
 
-export const partners =[
+export const partners = [
   {
     src: "/partners/support.svg",
     alt: "Support the poor initiative",
@@ -303,5 +303,5 @@ export const partners =[
     alt: "Youths Awaken Foundation",
     title: "Youths Awaken Foundation",
   },
- 
+
 ]
