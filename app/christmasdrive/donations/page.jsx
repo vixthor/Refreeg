@@ -11,7 +11,7 @@ export default function Page({ searchParams }) {
     try {
       await saveBookDriveData(formData);
     } catch (error) {
-      console.error("Error saving Christmas drive data: ", error);
+      console.error("Error saving Ramadan drive data: ", error);
     }
   };
 

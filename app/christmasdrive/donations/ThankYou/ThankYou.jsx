@@ -31,7 +31,7 @@ const ThankYou = () => {
         </h1>
 
         <p className="text-gray-700 text-lg text-center mb-8">
-          Would you like to stay informed about future Christmas drives and
+          Would you like to stay informed about future Ramadan drives and
           other charitable events? By creating an account?
         </p>
 
