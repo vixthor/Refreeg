@@ -23,7 +23,8 @@ import ReliefPopup from "./components/ReliefPopup"; // ReliefPopup component
 import OurPartners from "./components/ourpartners";
 import Link from "next/link";
 
-export default function Home() {
+
+export default  function Home() {
   const { width, height } = useWindowSize();
   const [confettiRun, setConfettiRun] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
@@ -34,7 +35,6 @@ export default function Home() {
   useEffect(() => {
     // Start confetti when the page loads
     setConfettiRun(true);
-
     const confettiTimer = setTimeout(() => {
       setConfettiRun(false); // Stop confetti after 10 seconds
     }, 10000);

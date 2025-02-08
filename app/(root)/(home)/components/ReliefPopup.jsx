@@ -26,7 +26,7 @@ const ReliefPopup = ({ onClose, onScrollToRelief }) => {
 
           {/* Title */}
           <h2 className="text-2xl md:text-3xl font-bold text-neutral-800 mt-4">
-            Help Us Donate Books to our Christmas drive
+            Help Us Donate Books to our Ramadan drive
           </h2>
 
           {/* Description */}

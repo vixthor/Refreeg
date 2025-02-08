@@ -183,7 +183,7 @@ export const quickLinks = [
   },
   {
     key: 4,
-    label: "Christmas Drive",
+    label: "Ramadan drive",
     route: "/christmasdrive",
   },
   {
@@ -303,4 +303,6 @@ export const partners = [
     alt: "Youths Awaken Foundation",
     title: "Youths Awaken Foundation",
   },
+
 ];
+
