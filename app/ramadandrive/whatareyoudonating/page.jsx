@@ -103,7 +103,7 @@ export default function page() {
           </Link>
 
           {/* Donation Item - Money  */}
-          <Link href="/christmasdrive/money">
+          <Link href="/ramadandrive/money">
             <span className="flex flex-col items-center gap-2">
               {/* Button for Money Item */}
               <button className="border-2 border-gray-300 rounded-full p-4 md:p-2 hover:bg-[#ea9c9c] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,0.30)] transition-all duration-300">

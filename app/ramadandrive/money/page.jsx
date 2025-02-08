@@ -45,7 +45,7 @@ const Donate = () => {
   };
 
   const closeModal = () => {
-    router.push("/christmasdrive/whatareyoudonating");
+    router.push("/ramadandrive/whatareyoudonating");
   };
 
   const style = {
@@ -70,7 +70,7 @@ const Donate = () => {
   return (
     <div className="px-4">
       <h1 className="text-center text-[25px] my-4 font-[600]">
-        Make your donation here 😊🎄
+        Make your donation here 😊🌕
       </h1>
       <div className="text-center text-sm text-gray-500 mb-4">
         All donations are processed in Naira (₦).
