@@ -55,7 +55,7 @@ const Header = () => {
             {nav.label}
           </button>
         ))}
-        <Link href="/christmasdrive">Ramadan drive</Link>
+        <Link href="/ramadandrive">Ramadan drive</Link>
         <Link href="/petitions">Petitions</Link>
         <Link href={socialLinks.community}>
           <button className="flex gap-[6px] bg-[#036] py-[10px] px-[15px] rounded-[8px] text-white text-[15px] items-center justify-center font-semibold">
@@ -91,7 +91,7 @@ const Header = () => {
                 </button>
               ))}
               <Link
-                href="/christmasdrive"
+                href="/ramadandrive"
                 onClick={onClose}
                 className="py-2 px-4 text-lg font-medium text-gray-700 hover:bg-gray-100 rounded-md"
               >
