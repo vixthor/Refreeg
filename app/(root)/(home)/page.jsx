@@ -68,17 +68,20 @@ export default  function Home() {
     <main>
       {/* Confetti */}
       {confettiRun && <Confetti width={width} height={height} />}
-
       {/* Relief Popup */}
-      {showPopup && <ReliefPopup onClose={handleClosePopup} onScrollToRelief={handleScrollToRelief} />}
+      {/* {showPopup && (
+        <ReliefPopup
+          onClose={handleClosePopup}
+          onScrollToRelief={handleScrollToRelief}
+        />
+      )} */}
       <Hero />
       <OurPartners />
-     
       <About />
       <WhoWeAre />
       <HowWeMakeADifference />
       <HowDoWeWork />
-      {/* Relief Section with reference */}
+      Relief Section with reference
       <div ref={reliefRef}>
         <Relief />
       </div>

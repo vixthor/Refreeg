@@ -1,36 +1,26 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
 import Image from "next/image";
-import { getTotalPetitionCount } from "lib/firebase/action"; // Adjust the path
+import Modal from "components/shared/PetitionCreationPopup";
+import { getTotalPetitionCount } from "lib/firebase/action";
 
-const petitions = [
-  {
-    id: 1,
-    title: "GET DAHIRU FIRED!",
-    description:
-      "This petition is calling for justice and accountability. Together, we can create change. Add your voice by signing today and be a part of the solution.",
-    endDate: "2025-01-05", // Example end date
-    image: "/petitions/women.png",
-    link: "/petitions/petition",
-  },
-  // Add more petitions here
-];
-
+// Function to calculate the number of days left until a petition's end date
 const calculateDaysLeft = (endDate) => {
-  const today = new Date();
-  const end = new Date(endDate);
-  const timeDiff = end - today;
-  const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
-  return daysLeft > 0 ? `${daysLeft} days left` : "Expired";
+  const daysLeft = Math.ceil(
+    (new Date(endDate) - new Date()) / (1000 * 60 * 60 * 24)
+  );
+  return daysLeft > 0 ? `${daysLeft} days left` : "1 day left"; // Returns "1 Day left" if the date has passed
 };
 
 export default function Home() {
-  const [updatedPetitions, setUpdatedPetitions] = useState([]);
-  const [signatureCount, setSignatureCount] = useState(0);
+  const [signatureCount, setSignatureCount] = useState(0); // State to store the total number of signatures
+  const [isMounted, setIsMounted] = useState(false); // Ensure client-side rendering
+  const [showModal, setShowModal] = useState(false); // State to control the modal visibility
 
+  // Fetch the total petition count when the component mounts
   useEffect(() => {
+    setIsMounted(true); // Flag that the component is mounted
     const fetchPetitionCount = async () => {
       try {
         const count = await getTotalPetitionCount();
@@ -41,81 +31,32 @@ export default function Home() {
     };
 
     fetchPetitionCount();
-
-    const updated = petitions.map(petition => ({
-      ...petition,
-      daysLeft: calculateDaysLeft(petition.endDate),
-    }));
-    setUpdatedPetitions(updated);
   }, []);
 
+  if (!isMounted) return null; // Empty dependency array ensures this runs only once
+
   return (
-    <div className="px-[10px] md:px-[50px] space-y-5 my-10">
-      <p className="text-[#726c6c] text-lg font-medium font-montserrat">
+    <div className="px-[10px] md:px-[50px] space-y-8 my-12">
+      {/* Header text */}
+      <p className="text-[#726c6c] text-2xl font-semibold font-montserrat text-center">
         Make your voice heard and support a cause
       </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {updatedPetitions.map(petition => (
-          <div key={petition.id} className="max-w-[300px] h-[500px] mx-auto">
-            <div className="rounded-tr-2xl rounded-tl-2xl overflow-hidden">
-              <Image
-                src={petition.image}
-                alt={petition.title}
-                width={300}
-                height={200}
-                className="object-cover w-full"
-              />
-            </div>
-            <div className="shadow-xl rounded-b-2xl">
-              <div className="px-2">
-                <div className="py-4">
-                  <h2 className="text-black text-xl font-bold font-montserrat">
-                    {petition.title}
-                  </h2>
-                  <span className="flex gap-2">
-                    <p className="flex gap-1 text-black text-sm font-normal font-montserrat">
-                      <Image
-                        src="/petitions/clock 2.svg"
-                        alt="Days Left"
-                        width={10}
-                        height={10}
-                      />
-                      {petition.daysLeft}
-                    </p>
-                    <p className="flex gap-1 text-black text-sm font-normal font-montserrat">
-                      <Image
-                        src="/petitions/pencil-square 1.svg"
-                        alt="Signatures"
-                        width={10}
-                        height={10}
-                      />
-                      {signatureCount} Signatures
-                    </p>
-                  </span>
-                </div>
-                <p className="text-black font-normal font-montserrat">
-                  {petition.description}
-                </p>
-              </div>
-              <Link
-                href={`${petition.link}?title=${encodeURIComponent(
-                  petition.title
-                )}`}
-              >
-                <button className="flex gap-2 items-center justify-center bg-blue-500 text-white p-2 rounded-b-2xl w-full mt-3 hover:bg-blue-800 transition-all delay-100">
-                  Sign Petition
-                  <Image
-                    src="/petitions/chevron-right 2.svg"
-                    alt="Sign"
-                    width={20}
-                    height={20}
-                  />
-                </button>
-              </Link>
-            </div>
-          </div>
-        ))}
+
+      {/* Message when there are no petitions */}
+      <div className="flex flex-col items-center justify-center mt-16 space-y-6">
+        <p className="text-gray-700 text-2xl font-bold text-center">
+          There are no current petitions. Do you want to create one?
+        </p>
+        <button
+          className="bg-blue-500 text-white text-lg font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition-all"
+          onClick={() => setShowModal(true)}
+        >
+          Create Petition
+        </button>
       </div>
+
+      {/* Modal for creating a new petition */}
+      <Modal isOpen={showModal} onClose={() => setShowModal(false)} />
     </div>
   );
-};
+}

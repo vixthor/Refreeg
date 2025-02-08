@@ -304,4 +304,5 @@ export const partners = [
     title: "Youths Awaken Foundation",
   },
 
-]
+];
+

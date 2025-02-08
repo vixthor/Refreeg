@@ -1,13 +1,13 @@
 "use client";
 
-import React, { useState, useEffect } from "react"; // Import useEffect
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { socialLinks } from "../../../../constants"; // Assuming you have this for the community link
+import { socialLinks } from "../../../../constants"; 
 import Image from "next/image";
-import { getTotalPetitionCount } from "../../../../lib/firebase/action"; // Import the function
+import { getTotalPetitionCount } from "../../../../lib/firebase/action"; 
 import { Counter } from "../../../../components/counter";
-import ShareSheet from "../../../../components/shared/shareSheet"; // Import your ShareSheet component
-import JoinSheet from "../../../../components/shared/joinSheet"; // Import your JoinSheet component
+import ShareSheet from "../../../../components/shared/shareSheet";
+import JoinSheet from "../../../../components/shared/joinSheet"; 
 
 export default function PetitionsSuccessPage() {
   const [isShareSheetOpen, setIsShareSheetOpen] = useState(false);
@@ -52,14 +52,14 @@ export default function PetitionsSuccessPage() {
       </div>
 
       <h1 className="font-semibold text-2xl sm:text-3xl md:text-4xl space-x-2">
-        <span className="bg-gradient-to-t from-blue-500 to-[#ef4286] text-transparent bg-clip-text">
+        <span className="bg-gradient-to-t from-blue-500 to-[#ef4286] text-transparent bg-clip-text font-montserrat">
           {totalPetitionCount !== null ? (
             <Counter start={0} end={totalPetitionCount} duration={0.5} />
           ) : (
             <span>Loading...</span>
           )}
         </span>
-        <span className="block sm:inline">
+        <span className="block sm:inline text-[#0a0a0b] text-3xl font-medium font-montserrat">
           people have signed. Our goal is 1000!
         </span>
       </h1>

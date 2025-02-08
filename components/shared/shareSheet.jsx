@@ -46,7 +46,7 @@ export default function ShareSheet({ isOpen, onClose }) {
       {/* Toast container */}
       <ToastContainer />
 
-      <div className="bg-white rounded-lg shadow-lg p-6 w-[90%] sm:w-[400px] text-center flex flex-col relative">
+      <div className="bg-white rounded-lg shadow-lg p-6 w-[400px] text-center flex flex-col relative">
         {/* Close Button */}
         <div className="flex justify-end mb-4">
           <button onClick={onClose} className="" aria-label="Close">
