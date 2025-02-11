@@ -14,7 +14,7 @@ const petitions = [
     description:
       "Join us in making a difference—your donations can provide food, clothing, and essential supplies to those in need this holy month. This Ramadan, let’s come together as a community to support the less privileged. Every donation counts and brings barakah into your life. Give generously and spread kindness.",
     endDate: "2025-03-03",
-    image: "/petitions/women.png",
+    image: "/petitions/image.png",
     link: "/ramadandrive",
   },
 ];
