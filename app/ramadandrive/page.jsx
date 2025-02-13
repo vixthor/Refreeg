@@ -23,25 +23,25 @@
 //             contributions will make a tangible difference in the lives of
 //             children and learners around the world.
 //           </p>
-//           <Link href="/ramadandrive/whatareyoudonating">
-//             <button className="bg-blue-600 text-white px-8 py-3 rounded-full inline-flex items-center">
-//               Proceed to Donate
-//               <svg
-//                 className="w-6 h-6 ml-2"
-//                 fill="none"
-//                 stroke="currentColor"
-//                 viewBox="0 0 24 24"
-//                 xmlns="http://www.w3.org/2000/svg"
-//               >
-//                 <path
-//                   strokeLinecap="round"
-//                   strokeLinejoin="round"
-//                   strokeWidth="2"
-//                   d="M5 12h14M12 5l7 7-7 7"
-//                 ></path>
-//               </svg>
-//             </button>
-//           </Link>
+// <Link href="/ramadandrive/whatareyoudonating">
+//   <button className="bg-blue-600 text-white px-8 py-3 rounded-full inline-flex items-center">
+//     Proceed to Donate
+//     <svg
+//       className="w-6 h-6 ml-2"
+//       fill="none"
+//       stroke="currentColor"
+//       viewBox="0 0 24 24"
+//       xmlns="http://www.w3.org/2000/svg"
+//     >
+//       <path
+//         strokeLinecap="round"
+//         strokeLinejoin="round"
+//         strokeWidth="2"
+//         d="M5 12h14M12 5l7 7-7 7"
+//       ></path>
+//     </svg>
+//   </button>
+// </Link>
 //         </div>
 //       </div>
 
@@ -208,7 +208,7 @@ export default function Home() {
 
               {/* Link to sign the petition */}
             </div>
-            <Link href={`${link}?title=${encodeURIComponent(title)}`}>
+            <Link href="/ramadandrive/whatareyoudonating">
               <button className="flex gap-2 items-center justify-center bg-blue-500 text-white p-2 rounded-b-2xl w-full hover:bg-blue-800 transition-all delay-100">
                 Donate
                 <Image
