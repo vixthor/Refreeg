@@ -147,7 +147,7 @@ export const Founders = [
     name: "Amadike-Unaogu Chukwunomso",
     role: "Developer",
     desc: "Amadike Nomso is a Developer at RefreeG, where he puts his coding skills to work improving our tech solutions. With a passion for building great software and a sharp eye for detail, he's key to making sure our crowdfunding platforms run smoothly. Always eager to explore new technologies, Nomso is committed to keeping our systems efficient, reliable, and easy for users.",
-    src: "/c4.svg",
+    src: "",
   },
   {
     key: 6,
