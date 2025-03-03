@@ -145,8 +145,8 @@ export const Founders = [
   {
     key: 4,
     name: "Amadike-Unaogu Chukwunomso",
-    role: "Developer",
-    desc: "Amadike Nomso is a Developer at RefreeG, where he puts his coding skills to work improving our tech solutions. With a passion for building great software and a sharp eye for detail, he's key to making sure our crowdfunding platforms run smoothly. Always eager to explore new technologies, Nomso is committed to keeping our systems efficient, reliable, and easy for users.",
+    role: "Chief Product Officer",
+    desc: "Amadike Nomso is the Chief Product Officer (CPO) at RefreeG, where he leads the vision, strategy, and development of our crowdfunding platform. With a strong background in software development and a passion for innovation, he ensures that our platform remains scalable, user-friendly, and secure. Nomso plays a key role in integrating blockchain technology, optimizing user experience, and driving product growth. Always exploring new technologies, he is committed to making RefreeG a transparent and efficient solution for educational crowdfunding.",
     src: "",
   },
   {
@@ -303,6 +303,4 @@ export const partners = [
     alt: "Youths Awaken Foundation",
     title: "Youths Awaken Foundation",
   },
-
 ];
-
