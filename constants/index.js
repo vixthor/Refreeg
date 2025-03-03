@@ -146,7 +146,7 @@ export const Founders = [
     key: 4,
     name: "Amadike-Unaogu Chukwunomso",
     role: "Chief Product Officer",
-    desc: "Amadike Nomso is the Chief Product Officer (CPO) at RefreeG, where he leads the vision, strategy, and development of our crowdfunding platform. With a strong background in software development and a passion for innovation, he ensures that our platform remains scalable, user-friendly, and secure. Nomso plays a key role in integrating blockchain technology, optimizing user experience, and driving product growth. Always exploring new technologies, he is committed to making RefreeG a transparent and efficient solution for educational crowdfunding.",
+    desc: "A strategic product leader with a software engineering background, Nomso drives innovation at RefreeG. He leads product development, blockchain integration, and user experience to enhance transparency and scalability in crowdfunding.",
     src: "",
   },
   {
