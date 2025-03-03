@@ -146,7 +146,8 @@ export const Founders = [
     key: 4,
     name: "Amadike-Unaogu Chukwunomso",
     role: "Chief Product Officer",
-    desc: "A strategic product leader with a software engineering background, Nomso drives innovation at RefreeG. He leads product development, blockchain integration, and user experience to enhance transparency and scalability in crowdfunding.",
+    desc: "A strategic product leader with a software engineering background, Nomso drives innovation, blockchain integration, and user experience at RefreeG.",
+
     src: "",
   },
   {
