@@ -15,7 +15,7 @@ const Founder = ({name, role, desc, src}) => {
         </div>
         <p className='text-[15px] font-semibold mt-[5px]'>{name}</p>
         <p className='text-[13px] '>{role}</p>
-        <p className='text-[9px] line-clamp-3'>{desc}</p>
+        <p className='text-[9px] line-clamp-3 text-justify'>{desc}</p>
         </div>
     </div>
   )
