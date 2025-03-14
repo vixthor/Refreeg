@@ -1,5 +1,10 @@
 import GetMail from "../../../../components/shared/GetMail";
-import { contactLinks, legalLinks, quickLinks, socialLinks } from "../../../../constants";
+import {
+  contactLinks,
+  legalLinks,
+  quickLinks,
+  socialLinks,
+} from "../../../../constants";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -28,9 +33,11 @@ const Footer = () => {
           <GetMail />
           <p className="text-[10px] mt-3">
             By Subscribing you agree with our{" "}
-            <span className="text-bold font-medium underline">
-              Privacy policy
-            </span>{" "}
+            <Link href="/privacy-policy">
+              <span className="text-bold font-medium underline cursor-pointer">
+                Privacy Policy
+              </span>
+            </Link>
           </p>
         </div>
 
