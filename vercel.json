@@ -1,0 +1,20 @@
+{
+    "rewrites": [
+        {
+            "source": "/app/",
+            "destination": "https://refree-g-platform.vercel.app/"
+        },
+        {
+            "source": "/app/:match*",
+            "destination": "https://refree-g-platform.vercel.app/:match*"
+        },
+        {
+            "source": "/",
+            "destination": "https://refreeg-psi.vercel.app/"
+        },
+        {
+            "source": "/:match*",
+            "destination": "https://refreeg-psi.vercel.app/:match*"
+        }
+    ]
+}
