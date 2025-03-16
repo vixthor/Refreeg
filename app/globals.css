@@ -31,19 +31,18 @@ html {
 
 .custom-dots {
   display: flex !important; /* Use flexbox */
-  justify-content: center;  /* Center the dots */
-  margin-top: 10px;        /* Adjust spacing as needed */
+  justify-content: center; /* Center the dots */
+  margin-top: 10px; /* Adjust spacing as needed */
 }
 
 .custom-dots li {
-  margin: 0 5px;           /* Space out the dots */
+  margin: 0 5px; /* Space out the dots */
 }
 
 .custom-dots li.slick-active button {
-  background: #036;        /* Change color for active dot */
+  background: #036; /* Change color for active dot */
   border-radius: 50%;
 }
-
 
 /* body {
   color: rgb(var(--foreground-rgb));
@@ -124,4 +123,23 @@ html {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.8);
+    transform: scale(1.05);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+    transform: scale(1);
+  }
+}
+
+.glowing-button {
+  animation: glow 1.5s infinite ease-in-out;
 }
