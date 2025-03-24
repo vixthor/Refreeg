@@ -185,11 +185,6 @@ export const quickLinks = [
   {
     key: 4,
     label: "Ramadan drive",
-    route: "/christmasdrive",
-  },
-  {
-    key: 5,
-    label: "Petitions",
     route: "/petitions",
   },
 ];
