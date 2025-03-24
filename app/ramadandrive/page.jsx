@@ -50,7 +50,7 @@ export default function Home() {
   if (!isMounted) return null; // Empty dependency array ensures this runs only once
 
   return (
-    <div className="px-[10px] md:px-[50px] space-y-5 my-10">
+    <div className="px-[10px] md:px-[50px] space-y-5 my-20">
       {/* Header text to introduce the petitions */}
       <p className="text-[#726c6c] text-lg font-medium font-montserrat">
         Support a cause with Refreeg
