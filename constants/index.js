@@ -148,7 +148,7 @@ export const Founders = [
     role: "Chief Product Officer",
     desc: "A strategic product leader with a software engineering background, Nomso drives innovation, blockchain integration, and user experience at RefreeG.",
 
-    src: "",
+    src: "/c4.svg",
   },
   {
     key: 6,
